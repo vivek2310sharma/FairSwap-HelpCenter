@@ -3,7 +3,7 @@
 The independent, India-first, 10-language Help & Safety knowledge centre for [FairSwap](https://fairswap.in).
 
 **Proposed public address:** https://help.fairswap.in  
-**Status:** Architecture and implementation planning; not deployed.  
+**Status:** V1 implemented for protected preview testing; editorial approvals and production release pending.
 **Git strategy:** Work on branches; preview, test, review and merge into main.  
 **V1:** Static Next.js content with 10 languages, English default, optional IP-state language suggestion, no database and no Supabase project or integration. The suggestion uses one minimal Vercel Function; it does not require GPS permission.
 
@@ -33,6 +33,21 @@ Read [AGENTS.md](AGENTS.md) before asking a coding agent to change this reposito
 
 **Not in V1:** New authentication, a support-ticket database, contact forms, chatbots, payment collection, boost ordering, ad campaign management, job applications, user profiles, a CMS, or any promises that planned services are live.
 **Language behavior:** Opening `/` always lands on `/en`. Never auto-redirect by browser language or IP. Visitors may switch from a small, dismissible state-based suggestion (if available) or a visible 10-language selector. Explicit locale URLs remain in the chosen language. No Urdu.
+
+## Development and verification
+
+Use Node 24.15.0 and pnpm 11.25.0 at the repository root:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+`pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm content:check`, `pnpm build`, and `pnpm test:browser` verify the application. Install Chromium with `pnpm exec playwright install chromium` before browser tests. `pnpm format:check` enforces formatting. GitHub Actions runs these checks plus a separate production-mode build and `pnpm test:production`.
+
+Local development and Vercel **preview** builds expose all 100 Markdown drafts with conspicuous review notices and noindex. Vercel **production** builds hide drafts and unapproved locale shells, emit empty draft-free search indexes and serve an English editorial-hold page. Production cannot be enabled by a draft-visibility flag. Human approval is required for the page-copy registry in `src/lib/editorial.ts` and all ten translations of each article before publishing. Regional suggestions stay disabled until their destination language is fully approved.
+
+See [implementation notes](docs/12_IMPLEMENTATION_NOTES.md) for routing, source provenance, security decisions and editorial steps. The existing Vercel Git integration builds PR previews; no new deployment token, database, project or custom domain is needed.
 
 ## Repository status and constraints
 
