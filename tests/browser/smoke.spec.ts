@@ -148,6 +148,30 @@ test("mobile widths, keyboard and non-Latin accessibility", async ({
     .analyze();
   expect(results.violations).toEqual([]);
 });
+test("search focus is quiet; only hovered result heading underlines", async ({
+  page,
+}) => {
+  // Make the first fetch slow to verify the delayed status treatment.
+  await page.route("**/search/en.json", async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 800));
+    await route.continue();
+  });
+  await page.goto("/en");
+  const input = page.getByRole("searchbox");
+  await input.focus();
+  await expect(page.locator(".search-status")).toBeEmpty();
+  await input.fill("UPI");
+  await expect(page.locator(".search-status")).toHaveText(copy("en").loading);
+  const first = page.locator(".result").first();
+  await expect(first).toBeVisible();
+  await first.hover();
+  await expect(first).toHaveCSS("text-decoration-line", "none");
+  await expect(first.locator("strong")).toHaveCSS(
+    "text-decoration-line",
+    "underline",
+  );
+  await expect(first.locator("p")).toHaveCSS("text-decoration-line", "none");
+});
 test("search stays local and fails gracefully", async ({ page }) => {
   await page.goto("/bn/search");
   const requests: string[] = [];
