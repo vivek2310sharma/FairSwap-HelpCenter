@@ -1,6 +1,6 @@
 # Codex / AI Contributor Contract
 
-Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 through docs/09 before substantial implementation. Treat this as a production commercial website that is not yet live.
+Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 through docs/11 before substantial implementation. Treat this as a production commercial website that is not yet live.
 
 ## Non-negotiable decisions
 
@@ -29,11 +29,13 @@ Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 thr
 
 ## Execution protocol
 
+**Current approved execution mode (2026-10-14): ONE full Codex build on the existing docs/help-center-v1-blueprint branch and its draft PR #1. docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md overrides the older phase-by-phase PR workflow. Deliver working code + tests + Vercel preview in one assignment; keep draft until the user tests.**
+
 1. Check actual repository, installed package versions and task docs first.
 2. State files to create/modify and acceptance criteria.
-3. Implement one focused milestone on a topic branch/worktree (for example feature/help-foundation).
+3. For the current assignment, implement all internal milestones in order on the existing docs/help-center-v1-blueprint branch; multiple logical commits are encouraged, not separate PRs.
 4. Run formatting, linting, typechecking, tests and production build locally; report exact results.
-5. Review the diff, fix warnings, open a PR; never self-merge or production-deploy without explicit approval.
+5. Review the diff, fix warnings and update existing draft PR #1; never self-merge or production-deploy without explicit approval.
 6. Preserve existing architecture decisions; propose changes as a reviewed ADR in docs/08_REFERENCES_DECISIONS.md.
 
 After scaffolding, standardize package scripts: pnpm dev, pnpm lint, pnpm typecheck, pnpm test, pnpm build. Use a pinned Node LTS compatible with the selected Next.js version; commit pnpm-lock.yaml and packageManager pin.
