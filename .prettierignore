@@ -1,0 +1,17 @@
+AGENTS.md
+docs/01_PRODUCT_SCOPE.md
+docs/02_ARCHITECTURE.md
+docs/03_DESIGN_UX.md
+docs/04_CONTENT_PLAN.md
+docs/05_SECURITY_INTEGRATIONS.md
+docs/06_DELIVERY_VERCEL.md
+docs/07_CODEX_KICKOFF.md
+docs/08_REFERENCES_DECISIONS.md
+docs/09_LAUNCH_CHECKLIST.md
+docs/10_LANGUAGE_SELECTION.md
+docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md
+public/search/
+.next/
+node_modules/
+playwright-report/
+test-results/
