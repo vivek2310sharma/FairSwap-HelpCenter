@@ -9,6 +9,7 @@ import { SearchBox } from "./search-box";
 import { Suggestion } from "./suggestion";
 import { Breadcrumbs, SafetyCallout, Support } from "./site";
 import { Icon } from "./icon";
+import { articleHelpContext, SUPPORT_EMAIL, EMAIL_HREF } from "@/lib/support";
 export function ArticleCards({
   locale,
   articles,
@@ -25,9 +26,6 @@ export function ArticleCards({
           key={a.id}
           href={`/${locale}/articles/${a.slug}`}
         >
-          <span className="article-marker" aria-hidden="true">
-            ↗
-          </span>
           <h3>{a.title}</h3>
           <p>{a.summary}</p>
         </Link>
@@ -77,7 +75,7 @@ export function Home({ locale }: { locale: Locale }) {
           <div className="section-heading">
             <h2>{c.topics}</h2>
             <Link href={`/${locale}/topics`}>
-              {c.allTopics} <span aria-hidden="true">↗</span>
+              {c.allTopics}
             </Link>
           </div>
           <TopicCards locale={locale} />
@@ -138,7 +136,16 @@ export function Directory({ locale, slug }: { locale: Locale; slug?: string }) {
           {!articles.length && <p>{c.unpublished}</p>}
         </section>
       )}
-      <Support locale={locale} />
+      <Support
+        locale={locale}
+        context={
+          slug === "account"
+            ? "account"
+            : slug === "safety-scams"
+              ? "safety"
+              : "general"
+        }
+      />
     </div>
   );
 }
@@ -152,7 +159,7 @@ export function FraudHelp({ locale }: { locale: Locale }) {
         <h2>{copy(locale).safety}</h2>
         <p>{fraud[locale]}</p>
         <a href="https://cybercrime.gov.in/">
-          cybercrime.gov.in <span aria-hidden="true">↗</span>
+          cybercrime.gov.in
         </a>
       </div>
     </aside>
@@ -235,33 +242,17 @@ export function ArticlePage({
             </ReactMarkdown>
           </div>
           {a.category === "safety-scams" && <FraudHelp locale={locale} />}
-          <section className="article-escalation">
-            <h2>{c.needHelp}</h2>
-            <p>
-              {a.id === "grievance-redressal"
-                ? c.grievanceText
-                : a.id === "report-a-listing"
-                  ? c.reportText
-                  : c.supportText}
-            </p>
-            <a
-              className="button"
-              href={
-                a.id === "grievance-redressal"
-                  ? "https://fairswap.in/grievance"
-                  : "https://fairswap.in/account/support"
-              }
-            >
-              {a.id === "grievance-redressal" ? c.grievance : c.support}
-              <span aria-hidden="true"> ↗</span>
-            </a>
-          </section>
+          <Support
+            locale={locale}
+            context={articleHelpContext(a)}
+            variant="article"
+          />
         </article>
         <aside className="related">
           <h2>{c.related}</h2>
           {related.map((a) => (
             <Link key={a.id} href={`/${locale}/articles/${a.slug}`}>
-              {a.title} <span aria-hidden="true">↗</span>
+              {a.title}
             </Link>
           ))}
           <Link href={`/${locale}/topics/${topic.slug}`}>{topic.title}</Link>
@@ -289,7 +280,7 @@ export function SafetyPage({ locale }: { locale: Locale }) {
         )}
       />
       <FraudHelp locale={locale} />
-      <Support locale={locale} />
+      <Support locale={locale} context="safety" />
     </div>
   );
 }
@@ -297,21 +288,31 @@ export function ContactPage({ locale }: { locale: Locale }) {
   const c = copy(locale);
   const entries = [
     {
+      title: c.emailSupport,
+      text: c.accountHelpText,
+      href: EMAIL_HREF,
+      label: SUPPORT_EMAIL,
+      index: 0,
+    },
+    {
       title: c.support,
       text: c.supportText,
       href: "https://fairswap.in/account/support",
+      label: c.support,
       index: 0,
     },
     {
       title: c.report,
       text: c.reportText,
       href: "https://fairswap.in",
+      label: c.marketplace,
       index: 5,
     },
     {
       title: c.grievance,
       text: c.grievanceText,
       href: "https://fairswap.in/grievance",
+      label: c.grievance,
       index: 6,
     },
   ];
@@ -332,8 +333,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
             <h2>{e.title}</h2>
             <p>{e.text}</p>
             <a className="button secondary" href={e.href}>
-              {e.title}
-              <span aria-hidden="true"> ↗</span>
+              {e.label}
             </a>
           </section>
         ))}
@@ -402,7 +402,6 @@ export function ComingSoon({
           </Link>
           <a className="button secondary" href="https://fairswap.in">
             {c.marketplace}
-            <span aria-hidden="true"> ↗</span>
           </a>
         </div>
       </section>

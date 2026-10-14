@@ -475,10 +475,6 @@ p {
   font-size: 0.9rem;
   margin: 0;
 }
-.article-marker {
-  color: var(--green);
-  font-size: 1.35rem;
-}
 .support {
   display: flex;
   justify-content: space-between;
@@ -497,6 +493,28 @@ p {
   color: var(--muted);
   font-size: 0.92rem;
   margin: 0;
+}
+.support-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.support-actions .button {
+  flex-shrink: 1;
+}
+.support-actions .email-action {
+  flex-direction: column;
+  gap: 0;
+}
+.support-email-address {
+  font-size: 0.78rem;
+  font-weight: 450;
+  opacity: 0.9;
+  overflow-wrap: anywhere;
+}
+.article-escalation .support-actions {
+  margin-top: 16px;
 }
 .button {
   display: inline-flex;
@@ -692,7 +710,7 @@ p {
 }
 .contact-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 20px;
 }
 .contact-card {
@@ -921,7 +939,12 @@ p {
     padding: 24px;
     margin-block: 34px 44px;
   }
-  .support .button {
+  .support-actions {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .support-actions .button {
     width: 100%;
   }
   .footer-grid {

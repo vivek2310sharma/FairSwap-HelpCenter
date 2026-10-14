@@ -5,6 +5,7 @@ import { preview } from "@/lib/publication";
 import { LanguageSelector } from "./language-selector";
 import { Icon } from "./icon";
 import { MainNav } from "./main-nav";
+import { helpOptions, SUPPORT_EMAIL, type HelpContext } from "@/lib/support";
 export function Wordmark() {
   return (
     <a className="wordmark" href="https://fairswap.in">
@@ -104,18 +105,37 @@ export function Footer({ locale }: { locale: Locale }) {
     </footer>
   );
 }
-export function Support({ locale }: { locale: Locale }) {
+export function Support({
+  locale,
+  context = "general",
+  variant = "banner",
+}: {
+  locale: Locale;
+  context?: HelpContext;
+  variant?: "banner" | "article";
+}) {
   const c = copy(locale);
+  const { description, actions } = helpOptions(c, context);
   return (
-    <section className="support">
+    <section className={variant === "article" ? "article-escalation" : "support"}>
       <div>
         <h2>{c.needHelp}</h2>
-        <p>{c.supportText}</p>
+        <p>{description}</p>
       </div>
-      <Link className="button" href={`/${locale}/contact`}>
-        {c.contact}
-        <span aria-hidden="true"> ↗</span>
-      </Link>
+      <div className="support-actions">
+        {actions.map((action, index) => (
+          <a
+            key={action.href}
+            className={`button${index ? " secondary" : ""}${action.isEmail ? " email-action" : ""}`}
+            href={action.href}
+          >
+            {action.label}
+            {action.isEmail && (
+              <span className="support-email-address">{SUPPORT_EMAIL}</span>
+            )}
+          </a>
+        ))}
+      </div>
     </section>
   );
 }

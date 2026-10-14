@@ -89,10 +89,7 @@ export function SearchBox({ locale, c }: { locale: Locale; c: Copy }) {
                 key={a.id}
                 href={`/${locale}/articles/${a.slug}`}
               >
-                <strong>
-                  {a.title}
-                  <span aria-hidden="true"> ↗</span>
-                </strong>
+                <strong>{a.title}</strong>
                 <p>{a.summary}</p>
                 {a.draft && <small>{c.review}</small>}
               </Link>

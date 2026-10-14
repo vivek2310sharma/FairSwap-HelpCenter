@@ -172,6 +172,44 @@ test("search focus is quiet; only hovered result heading underlines", async ({
   );
   await expect(first.locator("p")).toHaveCSS("text-decoration-line", "none");
 });
+test("account access offers email without requiring a sign-in, and links avoid decorative diagonal arrows", async ({
+  page,
+}) => {
+  for (const locale of ["en", "hi", "gu"]) {
+    await page.goto(`/${locale}/articles/create-account`);
+    const help = page.locator(".article-escalation");
+    await expect(
+      help.locator('a[href="mailto:contact@fairswap.in"]'),
+    ).toBeVisible();
+    await expect(help).toContainText("contact@fairswap.in");
+    await expect(
+      help.locator('a[href="https://fairswap.in/account/support"]'),
+    ).toHaveCount(0);
+    await expect(page.locator(".related")).not.toContainText("↗");
+    await page.goto(`/${locale}/contact`);
+    await expect(
+      page.locator('a[href="mailto:contact@fairswap.in"]'),
+    ).toBeVisible();
+  }
+  await page.goto("/en/articles/grievance-redressal");
+  await expect(
+    page.locator('.article-escalation a[href="https://fairswap.in/grievance"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('.article-escalation a[href="mailto:contact@fairswap.in"]'),
+  ).toHaveCount(0);
+  await page.goto("/en/articles/avoid-upi-scams");
+  await expect(
+    page.locator('.article-escalation a[href="mailto:contact@fairswap.in"]'),
+  ).toBeVisible();
+  await expect(
+    page.locator('.article-escalation a[href*="/account/support"]'),
+  ).toHaveCount(0);
+  await page.goto("/en");
+  await page.getByRole("searchbox").fill("UPI");
+  await expect(page.locator(".result").first()).toBeVisible();
+  await expect(page.locator(".result").first()).not.toContainText("↗");
+});
 test("search stays local and fails gracefully", async ({ page }) => {
   await page.goto("/bn/search");
   const requests: string[] = [];
