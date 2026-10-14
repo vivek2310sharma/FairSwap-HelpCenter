@@ -2,7 +2,7 @@
 
 ## System boundaries
 
-Public visitors -> Vercel edge/CDN -> statically generated Next.js site (articles, categories, information pages, static search indexes). No API, login or database in V1.
+Public visitors -> Vercel edge/CDN -> statically generated Next.js site (articles, categories, information pages, static search indexes). No login or database in V1; the only permitted API route is one tiny location-to-language suggestion endpoint, with no persistence.
 
 Help Centre -> ordinary HTTPS links to existing FairSwap-Web endpoints:
 - https://fairswap.in/account/support (authenticated support tickets and moderation appeals)
@@ -19,7 +19,7 @@ The target website owns authentication and authorization. Never send access toke
 - TypeScript strict, Tailwind CSS; no component library requirement unless justified
 - Git-backed content: Markdown or MDX chosen consistently during scaffold; content compilation only from trusted repository
 - Zod validates article frontmatter/metadata and locale completeness at build time
-- Lightweight build-time generated English/Hindi JSON search indexes; tiny client search component loaded on demand
+- Lightweight build-time generated locale-specific JSON search indexes for the 10 supported languages; tiny client search component loaded on demand
 - Static metadata: canonical + hreflang, Open Graph, sitemap, robots, structured Article/Breadcrumb metadata where appropriate
 - Vercel GitHub integration for preview and production deployment; no custom server, no ORM, no secrets for V1
 - Pin Node LTS / pnpm / Next.js to reviewed compatible versions; document in package.json, lockfile and CI. Don't blindly use latest.
@@ -43,13 +43,15 @@ The target website owns authentication and authorization. Never send access toke
       [same categories and article filenames as en]
   public/
     brand/                   # approved optimized FairSwap assets only
-    search/                  # generated locale search JSON; no PII
+    search/                  # generated per-locale search JSON; no PII
   scripts/
     build-search-index.ts
     validate-content.ts
     check-links.ts
   src/
     app/
+      api/
+        language-suggestion/route.ts   # only dynamic V1 endpoint; no DB
       [locale]/
         layout.tsx
         page.tsx
@@ -81,6 +83,7 @@ The target website owns authentication and authorization. Never send access toke
       content.ts
       article-schema.ts
       i18n.ts
+      geo-suggestions.ts       # allowlisted state -> locale map
       search.ts
     styles/
       tokens.css              # approved FairSwap design tokens
@@ -97,19 +100,20 @@ This is a proposed layout, not current code.
 
 ## Content metadata contract
 
-At build time each article needs: id (shared across locales), slug (stable URL segment), locale (en or hi), title, summary, category, tags, reviewedAt, status (draft/published), sourceRefs (editorial verification), relatedIds. Article body is trusted Markdown/MDX. A metadata schema is validated with Zod; invalid dates, unknown categories, orphaned relations and duplicate slug/id pairs fail CI.
+At build time each article needs: id (shared across locales), slug (stable URL segment), locale (one of en, hi, bn, mr, te, ta, gu, kn, or, ml), title, summary, category, tags, reviewedAt, status (draft/published), sourceRefs (editorial verification), relatedIds. Article body is trusted Markdown/MDX. A metadata schema is validated with Zod; invalid dates, unknown categories, orphaned relations and duplicate slug/id pairs fail CI.
 
-To publish an article: both en and hi translations must be approved, sourceRefs verified, status=published in both. Do not silently show English body on a Hindi page. Drafts are excluded from generated routes, indexes and sitemap.
+To publish an article in the shared 10-language launch collection: all 10 translations must be approved, sourceRefs verified, and each file marked published. After launch, new article collections may be staged as drafts until all required translations pass review. Do not silently show English body on a translated page. Drafts are excluded from generated routes, indexes and sitemap.
 
 ## Search and translations
 
 Use content IDs independent of language so related articles and locale switching retain context. Generated locale-scoped index includes only published title, description, tags, slug and possibly short text excerpts; target compact payload and lazy fetch after user opens Search. Implement simple relevance weighting (title > tag > body); offer topic alternatives and 'Contact support' if no result. Queries and recent searches stay on the device during the session; do not send personal search terms to analytics.
+The optional /api/language-suggestion route reads x-vercel-ip-country and x-vercel-ip-country-region from Vercel, returns only an allowlisted locale hint or none, uses private/no-store response headers, does not read/store the raw IP, and never redirects. Fetch only when needed for the English homepage prompt, once per session. Keep the help articles statically rendered and cacheable. Full behavior, state mapping and tests: docs/10_LANGUAGE_SELECTION.md.
 
-Use static translation dictionaries for UI strings and translated Markdown for article bodies. Hindi typography must include Devanagari fallback. Default to /en, let visitor change locale manually. Store no locale cookie in V1 unless needed for a tested user experience.
+Use static UI dictionaries and localized Markdown. Ensure fonts cover Devanagari, Bengali, Telugu, Tamil, Gujarati, Kannada, Odia and Malayalam scripts. Default / to /en unconditionally. Do not auto-detect browser language or use a locale-preference cookie. Explicit /:locale paths determine content; the visitor changes language only by clicking a visible selector or optional state-based suggestion.
 
 ## Performance and security
 
-Prioritize: prerendered HTML, low JavaScript, no external fonts/scripts, optimized SVG icons, responsive design, lazy search index, image dimensions, no giant JS bundles. Set a strict but compatible CSP and other browser security headers after testing Next.js/Vercel behavior. No user-generated MDX, no remote embed, no external analytics SDK in V1, no privileged keys.
+Prioritize: prerendered HTML, low JavaScript, no external fonts/scripts, optimized SVG icons, responsive design, lazy search index, image dimensions, no giant JS bundles. Set a strict but compatible CSP and other browser security headers after testing Next.js/Vercel behavior. No user-generated MDX, no remote embed, no external analytics SDK in V1, no privileged keys. Avoid region-specific CDN HTML caching errors by separating the static HTML from the no-store suggestion endpoint.
 
 Do not depend on the uptime of fairswap.in to serve public article pages; only outbound escalation links depend on the marketplace app. For a down marketplace support backend, show stable fallback contact/grievance guidance with honest status, not fake ticket submission.
 

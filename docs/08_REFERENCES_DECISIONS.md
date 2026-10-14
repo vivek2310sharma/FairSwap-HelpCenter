@@ -11,11 +11,11 @@
 
 ADR-001 — Independent repo, Vercel website: APPROVED CONCEPT. Separate release lifecycle, one public URL used across clients.
 
-ADR-002 — No new database or Supabase integration in V1: APPROVED CONCEPT. All content stored in Git; no login, new support tickets or personal data handling.
+ADR-002 — No new database or Supabase integration in V1: APPROVED CONCEPT. All content stored in Git; no login or new support tickets. One minimal ephemeral Vercel Function is permitted for an IP-derived language suggestion, without storing or logging IP.
 
 ADR-003 — Existing support system stays authoritative: APPROVED CONCEPT. Current FairSwap-Web support backend and Admin dashboard continue owning tickets. Help Centre links only.
 
-ADR-004 — English and Hindi paired content: APPROVED CONCEPT. Future Tamil, Telugu, Bengali, Marathi, Kannada and Malayalam added only with reviewed translated content.
+ADR-004 — Ten supported launch languages: APPROVED PRODUCT DECISION. English, Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Odia and Malayalam. Urdu excluded. No language may be marked available or geo-suggested until its launch content has been reviewed.
 
 ADR-005 — Business offerings and Careers are informational placeholders only: APPROVED CONCEPT. No hidden ordering/signup/lead collection.
 
@@ -28,6 +28,9 @@ ADR-008 — Version-controlled content before CMS: PROPOSED; avoid operational o
 ADR-009 — Do not relocate statutory legal routes until reviewed: PROPOSED. Help Centre merely links to canonical fairswap.in policies and grievance flow.
 
 ADR-010 — Current mobile codebases are SwiftUI for iOS and Kotlin/Compose for Android: verified in linked repos at plan time; native integration PRs follow those ecosystems rather than React Native examples.
+ADR-011 — English-only default, never browser auto-detect: APPROVED PRODUCT DECISION. Root / redirects to /en; explicit locale routes always respected. No Accept-Language redirect or remembered-locale auto-override.
+
+ADR-012 — Optional approximate-state language suggestion, never an auto-switch: APPROVED PRODUCT DECISION. Use Vercel IP-derived IN/state headers to suggest one supported local language only on English homepage, with a small dismissible prompt; no GPS permission, no third-party location vendor, no IP persistence. See docs/10_LANGUAGE_SELECTION.md.
 
 ## Open decisions
 
@@ -35,7 +38,7 @@ ADR-010 — Current mobile codebases are SwiftUI for iOS and Kotlin/Compose for 
 - Confirm ownership and DNS access for fairswap.in.
 - Confirm commercially appropriate Vercel account/team and billing.
 - Confirm exact canonical support/grievance text from current deployed site and required statutory disclosures with counsel.
-- Editorial reviewers for English, Hindi and safety/legal articles.
+- Editorial reviewers for all 10 languages plus specialized safety/legal review.
 - Whether to use the name 'FairSwap Boost' as a public working title after trademark/branding check.
 - Later: whether to use a managed CMS, formal article feedback, metrics, customer support assistant or paid business products — all out of V1.
 

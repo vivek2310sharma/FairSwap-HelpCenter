@@ -2,7 +2,7 @@
 
 ## Launch editorial targets
 
-Seven categories; 28 paired articles in English and Hindi (56 source files). Draft content is not auto-published. Use stable slugs/IDs across locales and review claims against current FairSwap features.
+Seven categories; 28 article topics are the long-term catalog (28 x 10 = 280 translated article files at full coverage). For initial launch, fully review and publish 10 priority article topics in ALL 10 supported languages (100 article files), then expand to the 28-topic catalogue. Draft content is not auto-published. Use stable slugs/IDs across locales and verify current FairSwap features.
 
 | Topic / slug prefix | Proposed 4 article slugs |
 | --- | --- |
@@ -13,6 +13,7 @@ Seven categories; 28 paired articles in English and Hindi (56 source files). Dra
 | Safety & Scams (safety-scams) | avoid-upi-scams; fake-army-officer-scam; fake-courier-scam; advance-payment-warning |
 | Reports & Support (reporting-support) | report-a-listing; report-a-user-or-message; submit-support-ticket; appeal-moderation-decision |
 | Rules & Policies (rules-policies) | prohibited-items; privacy-and-data-requests; terms-and-acceptable-use; grievance-redressal |
+**10 launch-priority article IDs (10 translations each):** create-account, post-a-listing, safe-meetup, contact-a-seller, avoid-upi-scams, fake-army-officer-scam, fake-courier-scam, report-a-listing, submit-support-ticket, grievance-redressal. The topic catalogue has seven categories; every category has at least one article from launch.
 
 ## High-priority articles
 
@@ -40,10 +41,11 @@ Some Web support form category names have differed from older database enum defi
 
 ## Translation quality
 
-Use human-reviewed Indian Hindi (Devanagari); avoid machine-translated financial and legal claims. Translate navigation/UI and body, preserve stable IDs/slugs. Localize examples (UPI, PIN, Rupees if costs needed), never reuse Danish examples, kroner, legal procedures or contact points.
+Use human-reviewed, natural content for English, Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Odia and Malayalam; never publish unreviewed machine-translated financial/legal guidance. Translate navigation/UI and body, preserve stable IDs/slugs. Localize examples (UPI, PIN, Rupees if costs needed), never reuse Danish examples, kroner, legal procedures or contact points.
 
-Editorial workflow: draft source -> source verification -> bilingual translation -> Hindi reviewer -> product/security/legal review where applicable -> publish PR -> CI checks -> preview QA -> merge. Track reviewedAt and sourceRefs; review all fraud/legal articles at least quarterly and upon product/legal changes. If policy becomes stale, unpublish/draft or update immediately.
+Editorial workflow: draft source -> source verification -> translate all ten versions -> native-language reviewers -> product/security/legal review where applicable -> publish PR -> CI checks -> preview QA -> merge. Track reviewedAt and sourceRefs; review all fraud/legal articles at least quarterly and upon product/legal changes. If policy becomes stale, unpublish/draft or update immediately.
 
 ## Help Centre search
+**Publication gating:** Never suggest a language in which the homepage and the 10 launch-priority articles are not fully translated and reviewed. Keep that language out of the active locale/geo suggestion list until ready. Never render an English article body behind a translated-language URL.
 
-Search should find typo-tolerant titles if inexpensive, broad relevant synonyms and Devanagari queries. Index Hindi content in Hindi, English in English; tag common variants such as 'UPI', 'OTP', 'QR' in both. Keep indexes light. Prioritize 28 article sets over clever algorithms.
+Search should support all 10 scripts, common spellings and relevant synonyms. Maintain a small per-locale index containing only reviewed published content; tag common variants such as 'UPI', 'OTP', 'QR'. Prioritize launch's 10 fully localized article sets, then expand toward 28 before expensive search algorithms.

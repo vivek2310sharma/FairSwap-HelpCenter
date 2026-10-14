@@ -2,7 +2,8 @@
 
 ## Security boundaries
 
-V1 is intentionally public and anonymous. No session creation, no Supabase client or credentials, no database, no analytics storage and no contact forms. Repo content is reviewed/committed, not user-submitted. Validate frontmatter at build time. Prevent unsanitized arbitrary HTML/MDX remote embeds. Never log visitor search terms, phones or other personal data.
+V1 is intentionally public and anonymous. No authentication session, no Supabase client or credentials, no database, no analytics storage and no contact forms. Repo content is reviewed/committed, not user-submitted. Validate frontmatter at build time. Prevent unsanitized arbitrary HTML/MDX remote embeds. Never log visitor search terms, phones or other personal data.
+**Minimal IP-region language hint:** Use only Vercel-provided country/region request headers within a single /api/language-suggestion function. Do NOT log/store raw IP addresses, derive GPS coordinates, use an external geolocation API, profile visitors or transmit visitor information to third parties. Return a locale code only, use Cache-Control: private, no-store, no cookie. Optional sessionStorage may store only the dismissed flag. Always render English by default; the visitor chooses to switch. Review the site's privacy notice with counsel because the hosting provider still processes network metadata. See docs/10_LANGUAGE_SELECTION.md.
 
 Links to FairSwap application: restrict to known https://fairswap.in routes; rel=noopener where opening a new tab. Support contact and grievance information is sourced from current approved main Web pages, NOT hardcoded personal contact details without review.
 

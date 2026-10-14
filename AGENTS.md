@@ -4,8 +4,8 @@ Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 thr
 
 ## Non-negotiable decisions
 
-- India-first, English + Hindi at launch. Mobile-first, low-bandwidth, mid/low-end Android usable. Main domain fairswap.in; planned Help Centre domain help.fairswap.in.
-- Stack: Next.js App Router + TypeScript strict + Tailwind CSS. Prefer React Server Components and prerendered/static routes. No new backend for V1.
+- India-first, 10 supported languages at launch: en, hi, bn, mr, te, ta, gu, kn, or, ml. Urdu excluded. Mobile-first, low-bandwidth, mid/low-end Android usable. Main domain fairswap.in; planned Help Centre domain help.fairswap.in.
+- Stack: Next.js App Router + TypeScript strict + Tailwind CSS. Prefer React Server Components and prerendered/static routes. No database or auth backend for V1; the only optional dynamic component is one tiny Vercel Function for an IP-derived locale suggestion.
 - Content comes from versioned Markdown/MDX files in this repo. Static per-language index for client-side search. No Supabase SDK, DB credentials, Redis, hosted search, CMS, contact form, analytics SDK or AI chatbot in V1.
 - Respect boundaries: private support tickets remain in FairSwap-Web/FairSwap-Admin and existing Supabase. Link users to https://fairswap.in/account/support and appropriate reporting/grievance pages. Do not implement cross-origin session transfer, query-string JWTs or unreviewed OAuth.
 - Do not claim FairSwap offers payment escrow, courier shipping, guaranteed delivery, payment protection, active paid Boost, banner booking, or active recruiting.
@@ -18,13 +18,14 @@ Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 thr
 ## Coding and content quality
 
 - Strict TS, no any unless tightly justified. Type/validate structured metadata with Zod at build time. Treat Markdown as trusted reviewed repository content, not user-provided HTML.
-- Use small reusable components, semantic HTML, keyboard-accessible controls, useful alt text and tested focus states. Ensure Hindi glyph coverage.
+- Use small reusable components, semantic HTML, keyboard-accessible controls, useful alt text and tested focus states. Ensure glyph coverage across all supported Indian scripts, without loading excessive webfonts.
 - Prefer build-time content processing and generateStaticParams; avoid runtime work for content pages.
 - Keep search entirely client-side with a locale-specific generated compact index loaded on demand. Never upload user search queries.
-- Keep locale routes explicit /en and /hi. Never infer country from IP. Don't serve misleading English fallback while labeling content Hindi.
+- Use the 10 explicit locale routes from docs/10_LANGUAGE_SELECTION.md. Root / always redirects to /en. Never auto-detect browser language, auto-redirect by IP, or override a deep-linked locale. An optional nonblocking Vercel IP-region suggestion on the English homepage is allowed: user must click to switch; no GPS permission, IP logging, geolocation storage, or third-party geo API. Do not serve English content under a non-English locale label.
 - No secrets committed; no .env files; no unnecessary cookies or third-party trackers; avoid personal data in URLs, events and logs.
+- No cookie-based language selection or Accept-Language redirect. An optional session-only dismissed flag is permitted to avoid repeatedly showing the state suggestion. Do not retain IP, state, location or preference profiles.
 - Keep links to legal documents canonical on fairswap.in, and do not paraphrase statutory deadlines as binding without review.
-- Test metadata, redirects, broken links, search, a11y, Hindi, mobile layout, static generation and previews. Add automated checks.
+- Test metadata, locale redirects, broken links, search, accessibility, all 10 languages, IP hint dismiss/switch, mobile layout, static generation and previews. Add automated checks.
 
 ## Execution protocol
 
@@ -39,4 +40,4 @@ After scaffolding, standardize package scripts: pnpm dev, pnpm lint, pnpm typech
 
 ## Definition of done
 
-Every shipped route has clear purpose, EN/HI copy, keyboard/mobile usability, correct metadata and link targets, tests, no unapproved product claims, no sensitive data, and a working Vercel preview. See docs/09_LAUNCH_CHECKLIST.md.
+Every shipped route has clear purpose, reviewed localized copy in each active locale, keyboard/mobile usability, correct metadata and link targets, tests, no unapproved product claims, no sensitive data, and a working Vercel preview. See docs/09_LAUNCH_CHECKLIST.md.

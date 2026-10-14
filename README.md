@@ -1,11 +1,11 @@
 # FairSwap Help Centre
 
-The independent, India-first, bilingual Help & Safety knowledge centre for [FairSwap](https://fairswap.in).
+The independent, India-first, 10-language Help & Safety knowledge centre for [FairSwap](https://fairswap.in).
 
 **Proposed public address:** https://help.fairswap.in  
 **Status:** Architecture and implementation planning; not deployed.  
 **Git strategy:** Work on branches; preview, test, review and merge into main.  
-**V1:** Static Next.js content, no database, no new Supabase project or direct Supabase integration.
+**V1:** Static Next.js content with 10 languages, English default, optional IP-state language suggestion, no database and no Supabase project or integration. The suggestion uses one minimal Vercel Function; it does not require GPS permission.
 
 ## Read this first
 
@@ -18,18 +18,20 @@ The independent, India-first, bilingual Help & Safety knowledge centre for [Fair
 7. [Codex Desktop kickoff and ready-to-paste tasks](docs/07_CODEX_KICKOFF.md)
 8. [Reference research and decisions](docs/08_REFERENCES_DECISIONS.md)
 9. [Launch readiness checklist](docs/09_LAUNCH_CHECKLIST.md)
+10. [Language selection and IP-based suggestions](docs/10_LANGUAGE_SELECTION.md)
 
 Read [AGENTS.md](AGENTS.md) before asking a coding agent to change this repository.
 
 ## What's in scope?
 
-- Publicly readable English and Hindi guidance, topics, articles and lightweight on-device search.
+- Publicly readable guidance in English, Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Odia and Malayalam, with lightweight on-device search.
 - Fraud and safe-trading advice tailored to India.
 - Clear escalation to existing FairSwap support tickets, content reports and formal grievance channels on fairswap.in.
 - Under-development / Coming soon pages for **FairSwap Boost**, **Banner Advertising**, and **Careers**.
 - Responsive, accessible, search-indexable pages on Vercel.
 
 **Not in V1:** New authentication, a support-ticket database, contact forms, chatbots, payment collection, boost ordering, ad campaign management, job applications, user profiles, a CMS, or any promises that planned services are live.
+**Language behavior:** Opening `/` always lands on `/en`. Never auto-redirect by browser language or IP. Visitors may switch from a small, dismissible state-based suggestion (if available) or a visible 10-language selector. Explicit locale URLs remain in the chosen language. No Urdu.
 
 ## Repository status and constraints
 

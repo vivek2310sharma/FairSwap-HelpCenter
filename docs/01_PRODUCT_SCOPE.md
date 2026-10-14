@@ -13,16 +13,16 @@ Primary audience: buyers, sellers, new users, users facing suspicious payments/m
 1. Safety before growth: fraud advice is prominent, specific to India and action-oriented.
 2. Accurate product status: distinguish shipped capabilities from envisioned services.
 3. Self-service first, human escalation always discoverable.
-4. English and Hindi simultaneously; no half-translated public pages.
+4. Ten supported languages (English, Hindi, Bengali, Marathi, Telugu, Tamil, Gujarati, Kannada, Odia, Malayalam) with reviewed translations; no half-translated public pages. No Urdu.
 5. One public documentation hub for Web, iOS and Android; private support remains where it is.
 6. Maximise static delivery and reuse; no auth, new data store or third-party chatbot.
 
 ## V1 navigation
 
-Header: FairSwap logo linked to marketplace, Help Centre, Topics, Safety, locale toggle (English / हिन्दी), compact mobile menu.
+Header: FairSwap logo linked to marketplace, Help Centre, Topics, Safety, ten-language dropdown, compact mobile menu.
 
 Homepage:
-- Search: 'How can we help you?' / corresponding Hindi copy
+- Search: 'How can we help you?' / reviewed translations in all supported locales
 - A prominent Safety & Fraud warning/entry point
 - Topic cards (Account & Access; Listings; Buying & Selling; Messaging; Safety & Scams; Reports & Support; Policies)
 - Popular and newly reviewed articles (curated, not fake usage statistics)
@@ -31,9 +31,9 @@ Homepage:
 
 ## Public route contract
 
-- /                         -> redirect to /en (no IP/geolocation)
-- /en and /hi               -> home
-- /en/topics and /hi/topics -> all topic directory
+- /                         -> always redirect to /en, regardless of IP or browser language
+- /:locale                  -> home for en, hi, bn, mr, te, ta, gu, kn, or, ml
+- /:locale/topics           -> all topic directory
 - /:locale/topics/:slug     -> topic/category article list
 - /:locale/articles/:slug   -> article; shared stable ASCII slug per language
 - /:locale/search           -> client-side search UI using locale-specific index
@@ -45,6 +45,7 @@ Homepage:
 - /:locale/careers          -> Careers placeholder, coming soon
 - /sitemap.xml and /robots.txt -> generated public SEO metadata
 - unknown locale, slug or article -> useful 404 with links back to Help Centre
+**Simple language policy:** English is always the default. Do not inspect browser Accept-Language for redirects. On the English homepage only, a small dismissible message may suggest a published regional language using the visitor's approximate state from Vercel's IP-geolocation headers. Never switch automatically; if unavailable/uncertain, show no message. A manual language selector always works. See docs/10_LANGUAGE_SELECTION.md.
 
 Keep article URLs stable. If a slug changes, preserve a redirect and review internal links. Avoid duplicating current legal documents from fairswap.in.
 
@@ -56,13 +57,13 @@ Keep article URLs stable. If a slug changes, preserve a redirect and review inte
 
 **Careers:** A placeholder for future opportunities only. Do not imply vacancies, recruitment windows or applications are accepted. Include an anti-recruitment-scam caution; no applicant data collection.
 
-Visible copy for all three: 'Under development · Coming soon' and 'This service is not available yet. No bookings, payments or applications are being accepted.' Translate for Hindi, preserving meaning. Do not announce dates.
+Visible copy for all three: 'Under development · Coming soon' and 'This service is not available yet. No bookings, payments or applications are being accepted.' Translate into every supported locale, preserving meaning. Do not announce dates.
 
 ## V1 scope vs later
 
-V1 (must): 2 locales, 7 help categories, quality starter content, fast search, contextual escalation, 3 honest placeholders, branded layout, SEO, accessibility, release automation through Git/Vercel, testing.
+V1 (must): 10 supported locales, 7 help categories, 10 high-priority fully localized article sets, fast search, contextual escalation, 3 honest placeholders, branded layout, SEO, accessibility, release automation through Git/Vercel, testing.
 
-Later (requires explicit decisions): self-service ticket login on help.fairswap.in, CMS/editor roles, dedicated support backend, live chat, AI assistant, advertising orders, recruitment applications, analytics/feedback with consent/compliance, additional Indian languages.
+Later (requires explicit decisions): self-service ticket login on help.fairswap.in, CMS/editor roles, dedicated support backend, live chat, AI assistant, advertising orders, recruitment applications, analytics/feedback with consent/compliance, further languages beyond the chosen ten.
 
 ## User journeys
 
@@ -74,7 +75,7 @@ Later (requires explicit decisions): self-service ticket login on help.fairswap.
 
 ## Measurable acceptance
 
-- Every public page available in EN and HI with useful localized copy.
+- All shared public pages and 10 launch article sets available in all 10 locales with reviewed localized copy.
 - No dead-end support journeys and no forms or payment flows on the Help Centre.
 - Mobile viewport usable at 320–360px, with keyboard and screen-reader navigation.
 - All public claims matched to a reviewed current source (repo implementation, live production behavior, authoritative policy/official public resource).
