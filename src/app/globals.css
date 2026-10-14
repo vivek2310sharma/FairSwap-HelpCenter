@@ -501,15 +501,6 @@ p {
   height: 100%;
   padding: 10px 18px;
 }
-.support-email-address {
-  color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.4;
-  overflow-wrap: anywhere;
-}
-.support-email-address:hover {
-  color: var(--green);
-}
 .article-escalation .support-actions {
   margin-top: 16px;
 }

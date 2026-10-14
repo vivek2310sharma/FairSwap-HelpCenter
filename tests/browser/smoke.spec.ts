@@ -181,7 +181,7 @@ test("account access offers email without requiring a sign-in, and links avoid d
     await expect(
       help.locator('a[href="mailto:contact@fairswap.in"]').first(),
     ).toBeVisible();
-    await expect(help).toContainText("contact@fairswap.in");
+    await expect(help.locator(".support-email-address")).toHaveCount(0);
     await expect(
       help.locator('a[href="https://fairswap.in/account/support"]'),
     ).toHaveCount(0);
@@ -243,9 +243,7 @@ test("support action buttons use equal heights and matching theme across desktop
       "href",
       "mailto:contact@fairswap.in",
     );
-    await expect(page.locator(".support-email-address")).toHaveText(
-      "contact@fairswap.in",
-    );
+    await expect(page.locator(".support-email-address")).toHaveCount(0);
     const boxes = await buttons.evaluateAll((nodes) =>
       nodes.map((node) => {
         const box = node.getBoundingClientRect();
@@ -283,8 +281,9 @@ test("all ten languages show the same email-and-ticket help actions", async ({
       2,
     );
     await expect(
-      page.locator('.support a[href="mailto:contact@fairswap.in"]').first(),
+      page.locator('.support a[href="mailto:contact@fairswap.in"]'),
     ).toHaveText(copy(locale).emailSupport);
+    await expect(page.locator(".support-email-address")).toHaveCount(0);
     expect(
       await page.evaluate(
         () => document.documentElement.scrollWidth <= innerWidth,

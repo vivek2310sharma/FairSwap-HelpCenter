@@ -5,7 +5,7 @@ import { preview } from "@/lib/publication";
 import { LanguageSelector } from "./language-selector";
 import { Icon } from "./icon";
 import { MainNav } from "./main-nav";
-import { helpOptions, SUPPORT_EMAIL, type HelpContext } from "@/lib/support";
+import { helpOptions, type HelpContext } from "@/lib/support";
 export function Wordmark() {
   return (
     <a className="wordmark" href="https://fairswap.in">
@@ -136,11 +136,6 @@ export function Support({
             </a>
           ))}
         </div>
-        {actions.some((action) => action.isEmail) && (
-          <a className="support-email-address" href={`mailto:${SUPPORT_EMAIL}`}>
-            {SUPPORT_EMAIL}
-          </a>
-        )}
       </div>
     </section>
   );

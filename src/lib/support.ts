@@ -30,7 +30,6 @@ export function articleHelpContext(
 export type HelpAction = {
   href: string;
   label: string;
-  isEmail?: boolean;
 };
 
 export function helpOptions(
@@ -40,7 +39,6 @@ export function helpOptions(
   const email: HelpAction = {
     href: EMAIL_HREF,
     label: c.emailSupport,
-    isEmail: true,
   };
   const ticket: HelpAction = { href: TICKETS_HREF, label: c.support };
   switch (context) {
