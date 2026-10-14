@@ -19,6 +19,7 @@ The independent, India-first, 10-language Help & Safety knowledge centre for [Fa
 8. [Reference research and decisions](docs/08_REFERENCES_DECISIONS.md)
 9. [Launch readiness checklist](docs/09_LAUNCH_CHECKLIST.md)
 10. [Language selection and IP-based suggestions](docs/10_LANGUAGE_SELECTION.md)
+11. [One-shot full Codex implementation assignment](docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md)
 
 Read [AGENTS.md](AGENTS.md) before asking a coding agent to change this repository.
 
@@ -35,7 +36,7 @@ Read [AGENTS.md](AGENTS.md) before asking a coding agent to change this reposito
 
 ## Repository status and constraints
 
-This planning pack is the starting contract for Codex Desktop (GPT-6.1 Sol where available). Application code will be scaffolded in reviewed, incremental pull requests. Do not represent planning documents as shipped features or an active production deployment.
+This planning pack is the starting contract for Codex Desktop (GPT-6.1 Sol where available). The approved current execution approach is ONE full implementation task on the existing docs/help-center-v1-blueprint branch, updating draft PR #1; see docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md. After Codex pushes code, use the existing linked Vercel project to test a preview. Do not merge to main or represent unreviewed translations as published content until the owner approves.
 
 Reference URLs: [DBA Help](https://support.dba.dk/hc/da), [DBA Marketplace](https://www.dba.dk/), [Vercel Git](https://vercel.com/docs/git/vercel-for-github).
 
