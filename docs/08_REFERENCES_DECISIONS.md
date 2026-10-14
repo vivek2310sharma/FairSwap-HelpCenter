@@ -32,6 +32,8 @@ ADR-011 — English-only default, never browser auto-detect: APPROVED PRODUCT DE
 
 ADR-012 — Optional approximate-state language suggestion, never an auto-switch: APPROVED PRODUCT DECISION. Use Vercel IP-derived IN/state headers to suggest one supported local language only on English homepage, with a small dismissible prompt; no GPS permission, no third-party location vendor, no IP persistence. See docs/10_LANGUAGE_SELECTION.md.
 
+ADR-013 — One-shot implementation execution: APPROVED USER DIRECTION. Implement full V1 technical scope in one Codex Desktop task against existing planning branch/docs/help-center-v1-blueprint and draft PR #1. Internal phases are code milestones, not separate PRs. Preview via existing Vercel GitHub integration; do not merge or production-deploy before owner QA. See docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md.
+
 ## Open decisions
 
 - Final brand design token source: audit current FairSwap-Web (colors/fonts/logo variants) and agree one explicit visual contract.
