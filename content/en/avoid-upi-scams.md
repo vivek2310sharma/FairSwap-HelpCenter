@@ -4,24 +4,26 @@
   "slug": "avoid-upi-scams",
   "locale": "en",
   "title": "Avoid UPI payment scams",
-  "summary": "Receiving money does not require entering your UPI PIN or scanning a stranger’s payment QR. A collect request asks you to pay, rather than receive money.",
+  "summary": "Never enter a UPI PIN, scan someone else's QR code or approve a collect request just to receive money. Verify credits in your own app.",
   "category": "safety-scams",
   "tags": ["Avoid UPI payment scams", "UPI", "QR", "OTP", "PIN"],
   "reviewedAt": null,
   "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
 
-Receiving money does not require entering your UPI PIN or scanning a stranger’s payment QR. A collect request asks you to pay, rather than receive money.
+If someone says you must **enter a UPI PIN, scan their payment QR code or approve a request to receive money**, treat it as a scam warning. These actions can instead initiate or authorise a payment **out** of your account.
 
-## Practical steps
+## Protect yourself
 
-1. Read the amount and payment direction carefully. Decline an unexpected collect request. Never approve a small test payment to unlock a promised larger payment.
+1. Check the direction and amount of every UPI request. An unexpected **collect request** asks you to pay. Decline any request to send a small "test" amount, unlock a larger receipt or verify your account.
 
-2. Check credits in your own bank or UPI app. A receipt, screenshot or message from a buyer can be fabricated. Do not share an OTP, PIN or screen access.
+2. Check your **own** bank or UPI app for a successful credit before handing over an item. A payment screenshot, SMS image or buyer's claim can be fake. Never share an OTP, UPI PIN, password or remote-screen access with a buyer, seller or purported support agent.
 
-3. If money has been lost, contact your bank or payment-app support promptly. Report suspected financial cyber fraud through the official channels below; recovery is not guaranteed.
+3. Be sceptical of off-platform links that promise a refund, courier insurance or a payment confirmation after you sign in. Use your payment provider's official app or website instead of a stranger's link.
 
-This guidance is awaiting editorial approval.
+4. If you sent money to a suspected fraudster, contact your bank or payment-app support promptly. In India, suspected financial cyber fraud can be reported through the [National Cyber Crime Reporting Portal](https://cybercrime.gov.in/) or helpline **1930**. Save transaction references and relevant conversation evidence securely.
+
+Reporting is important but does **not** guarantee the return of funds. FairSwap does not reverse UPI transfers or provide an escrow guarantee.

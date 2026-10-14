@@ -4,24 +4,26 @@
   "slug": "fake-courier-scam",
   "locale": "en",
   "title": "Avoid fake courier fees",
-  "summary": "A supposed courier or delivery fee can be a way to obtain money without delivering an item. FairSwap guidance here does not promise shipping or delivery protection.",
+  "summary": "Be wary of repeated courier, insurance and release-fee demands; FairSwap does not provide its own shipping, escrow or payment protection.",
   "category": "safety-scams",
   "tags": ["Avoid fake courier fees", "UPI", "QR", "OTP", "PIN"],
   "reviewedAt": null,
   "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "sourceRefs": ["https://fairswap.in/safety"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
 
-A supposed courier or delivery fee can be a way to obtain money without delivering an item. FairSwap guidance here does not promise shipping or delivery protection.
+A scammer may claim that a courier is holding your item until you pay **insurance, a refundable security deposit or a release fee**. FairSwap's current classifieds service does **not** operate shipping, escrow or guaranteed delivery.
 
-## Practical steps
+## Check suspicious delivery requests
 
-1. Be cautious if an unknown person demands insurance, a refundable security payment or repeated release fees. Do not follow an unfamiliar courier payment link.
+1. Do not pay a courier deposit simply because a buyer or seller says it is required. Repeated new charges after an initial payment are a serious warning sign.
 
-2. Check any claimed courier independently through its official site or contact route. Do not use only the number or link provided by the trader.
+2. If someone claims to represent a courier, independently find that company's official website or contact details. Do not rely only on a phone number, QR code or tracking link sent by the trader.
 
-3. Do not pay under pressure. If you already sent money, contact your bank promptly and keep the payment reference and conversation for official reporting.
+3. Never install an unknown app, share screen access, give an OTP or enter your UPI PIN to receive a refund, parcel or payment.
 
-This guidance is awaiting editorial approval.
+4. Where practical, inspect goods in person before paying. If you have already transferred money and suspect fraud, contact your bank or payment provider promptly, save transaction evidence and consider reporting it on [cybercrime.gov.in](https://cybercrime.gov.in/) or **1930**.
+
+A marketplace conversation or an alleged courier receipt does not guarantee delivery. See [FairSwap safety guidance](https://fairswap.in/safety) before agreeing to an exchange.

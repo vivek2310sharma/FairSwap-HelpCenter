@@ -4,24 +4,26 @@
   "slug": "post-a-listing",
   "locale": "en",
   "title": "Post a useful listing",
-  "summary": "A clear description helps another person decide whether the item suits them. Availability and moderation steps must be checked against the current marketplace.",
+  "summary": "On FairSwap Web, start a listing while signed in, save its draft and submit for review when that category permits submission.",
   "category": "listings",
   "tags": ["Post a useful listing"],
   "reviewedAt": null,
   "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "sourceRefs": ["https://fairswap.in/account/listings/new"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
 
-A clear description helps another person decide whether the item suits them. Availability and moderation steps must be checked against the current marketplace.
+On FairSwap Web, listings may start as **private drafts**. Creating a draft does not automatically make an item public; eligible listings must pass the relevant submission and review steps.
 
-## Practical steps
+## Post a listing on the website
 
-1. Prepare your own clear photos, item condition, known faults and what is included. Remove visible addresses, identity documents and other private information.
+1. Sign in to FairSwap and open [Create New Listing](https://fairswap.in/account/listings/new). If asked to sign in first, finish signing in and return to this page.
 
-2. Open the listing entry point on FairSwap when available. Choose the closest category and describe the item honestly; read the acceptable-use policy first.
+2. Choose the available listing section and a matching category. Enter the requested information, accurate condition, known defects, price or exchange details where applicable, and clear photos of an item you are entitled to list. Remove private addresses, ID numbers and unrelated people from photos.
 
-3. Review details before submitting. Do not assume a listing will appear immediately or that promotion is included. If it is missing, check your account and use existing support.
+3. Save your listing as a **draft**. Open [My Listings](https://fairswap.in/account/listings) to check its status. If **Submit for Review** is available for your listing type, finish required details and follow that action; a pending-review listing is not yet public.
 
-This guidance is awaiting editorial approval.
+4. Some listing types or submission paths may be limited or temporarily unavailable during FairSwap's pilot. Do not assume a saved draft, review request or later edit publishes immediately. Read the status and guidance shown for your category.
+
+For prohibited items and content rules, refer to the [Acceptable Use Policy](https://fairswap.in/acceptable-use). If a listing is missing or cannot be submitted, use the appropriate support option below.

@@ -4,24 +4,26 @@
   "slug": "contact-a-seller",
   "locale": "en",
   "title": "Contact a seller safely",
-  "summary": "Ask specific questions about the item through the marketplace conversation option if available. Do not assume the same controls exist in every mobile app.",
+  "summary": "On FairSwap Web, use Contact Seller on a listing to start a conversation and keep payment links, credentials and personal documents out of chats.",
   "category": "messaging",
   "tags": ["Contact a seller safely"],
   "reviewedAt": null,
   "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "sourceRefs": ["https://fairswap.in/account/messages"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
 
-Ask specific questions about the item through the marketplace conversation option if available. Do not assume the same controls exist in every mobile app.
+FairSwap Web provides a **Contact Seller** action on listing details. Conversations and replies are handled through the existing marketplace, not this Help Centre.
 
-## Practical steps
+## Message a seller
 
-1. Read the listing and ask about condition, faults, included parts and whether the item is still available. Avoid sending identity documents or account credentials.
+1. Open the listing you are interested in and choose **Contact Seller**. Sign in if FairSwap asks you to; the Web flow may show a short message form before opening the conversation.
 
-2. Keep important agreements in the existing conversation. Treat pressure to move to an unknown payment website or share verification codes as a warning.
+2. Ask specific questions: Is the item still available? What is its condition? Are accessories or defects disclosed? Can you inspect it safely before deciding?
 
-3. Agree on inspection before payment. If a message seems suspicious, stop responding and look for reporting or blocking controls; use existing support if you cannot find them.
+3. Send the message through FairSwap and check [Messages](https://fairswap.in/account/messages) for replies. Keep important agreements in your marketplace conversation where possible.
 
-This guidance is awaiting editorial approval.
+4. Be cautious about links to unknown payment sites, urgent courier charges, requests for identity documents or promises that you must enter an OTP or UPI PIN to **receive** money.
+
+If someone sends abusive or suspicious messages, stop engaging. The Web conversation includes reporting controls for a user or message; if you cannot access them, use the support options below.

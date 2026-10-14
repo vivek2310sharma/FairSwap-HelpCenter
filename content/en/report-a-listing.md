@@ -4,7 +4,7 @@
   "slug": "report-a-listing",
   "locale": "en",
   "title": "Report a listing or conversation",
-  "summary": "Reporting helps raise a marketplace concern. A safety report is separate from a support ticket, a formal grievance or a police complaint.",
+  "summary": "Report suspicious marketplace activity using available listing, user or chat controls, or use email support if no suitable report control is visible.",
   "category": "reporting-support",
   "tags": ["Report a listing or conversation"],
   "reviewedAt": null,
@@ -14,14 +14,16 @@
 }
 ---
 
-Reporting helps raise a marketplace concern. A safety report is separate from a support ticket, a formal grievance or a police complaint.
+A marketplace **Report** is for suspicious content or conduct. It is separate from a support ticket, a formal grievance and a complaint to law enforcement.
 
-## Practical steps
+## Raise a concern
 
-1. Open the relevant listing, profile or conversation on FairSwap. Look for the reporting control if available; controls may differ by platform.
+1. Keep the relevant listing link, seller/profile reference or conversation available. On FairSwap Web, message conversations provide options to **Report User** or **Report Message**. Look for an appropriate reporting control where your issue occurred; controls can differ by page and platform.
 
-2. Describe the concern factually and provide relevant context. Do not include OTPs, UPI PINs, unrelated personal documents or public accusations.
+2. When a Report form is offered, choose the reason that best fits (for example suspected scam, impersonation or abusive messages) and add a brief, factual explanation. Do not upload OTPs, UPI PINs, bank credentials, Aadhaar details or unrelated personal documents.
 
-3. If no report control is available, use existing signed-in support. Stop a risky deal independently; submitting a report does not guarantee removal or an immediate response.
+3. If you cannot see a suitable control, use **Email support** below. If you can sign in and need account-level follow-up, you can also use the existing [Support Tickets](https://fairswap.in/account/support) dashboard.
 
-This guidance is awaiting editorial approval.
+4. For urgent physical danger, contact local emergency or law-enforcement services. For financial cyber fraud in India, report through [cybercrime.gov.in](https://cybercrime.gov.in/) or **1930** and contact your bank/payment app promptly.
+
+Submitting a platform report does not automatically remove a listing, guarantee an answer, or substitute for formal grievance redressal.
