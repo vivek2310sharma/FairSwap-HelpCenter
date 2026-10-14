@@ -23,7 +23,7 @@
 
 ### Phase 3 — Business and Careers (Codex PR 4)
 - /:locale/business, /:locale/business/boost, /:locale/business/banner-advertising and /:locale/careers.
-- Display clear Under development + Coming soon in EN/HI, no forms or payment buttons, add grouped footer links.
+- Display clear Under development + Coming soon in all 10 approved locales, no forms or payment buttons, add grouped footer links.
 **Exit:** tests assert Coming soon in all 10 locales, no unavailable-language fallback and absence of forms/booking/purchase/application CTAs.
 
 ### Phase 4 — Content and launch QA (Codex PR 5+)

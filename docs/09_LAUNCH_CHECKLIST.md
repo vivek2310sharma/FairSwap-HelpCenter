@@ -55,7 +55,7 @@ Status: NOT STARTED. Tick only after evidence is collected from actual build, br
 - [ ] FairSwap-Web links and /help replacement or redirect PR reviewed; preserve legal paths.
 - [ ] iOS native Help & Safety links updated; returns/back behavior verified.
 - [ ] Android Compose Help entry point added; Custom Tabs and offline fallback verified.
-- [ ] All platforms tested against production Help Centre with EN/HI deep links.
+- [ ] All platforms tested against production Help Centre with English-default behavior and explicit deep links into any of the 10 available locales.
 
 ## Human launch sign-off
 
