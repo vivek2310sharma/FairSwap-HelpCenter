@@ -249,7 +249,9 @@ export function ArticlePage({
         <aside className="related">
           <h2>{c.related}</h2>
           {related.map((a) => (
-            <Link key={a.id} href={`/${locale}/articles/${a.slug}`}>{a.title}</Link>
+            <Link key={a.id} href={`/${locale}/articles/${a.slug}`}>
+              {a.title}
+            </Link>
           ))}
           <Link href={`/${locale}/topics/${topic.slug}`}>{topic.title}</Link>
           <Link href={`/${locale}/contact`}>{c.contact}</Link>
