@@ -42,6 +42,7 @@ describe("contextual help destinations", () => {
     expect(
       helpOptions(c, "general").actions.map((action) => action.href),
     ).toEqual([EMAIL_HREF, TICKETS_HREF]);
+    expect(helpOptions(c, "general").description).toBe(c.generalHelpText);
     expect(
       helpOptions(c, "ticket").actions.map((action) => action.href),
     ).toEqual([TICKETS_HREF, EMAIL_HREF]);

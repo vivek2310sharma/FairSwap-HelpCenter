@@ -61,6 +61,6 @@ export function helpOptions(
         actions: [{ href: GRIEVANCE_HREF, label: c.grievance }],
       };
     default:
-      return { description: c.supportText, actions: [email, ticket] };
+      return { description: c.generalHelpText, actions: [email, ticket] };
   }
 }

@@ -47,9 +47,6 @@ export function TopicCards({ locale }: { locale: Locale }) {
           </div>
           <h3>{t.title}</h3>
           <p>{t.summary}</p>
-          <span className="card-arrow" aria-hidden="true">
-            →
-          </span>
         </Link>
       ))}
     </div>
@@ -419,7 +416,6 @@ export function ComingSoon({
               <span className="status-badge">{c.soon}</span>
               <h2>{e.label}</h2>
               <p>{e.text}</p>
-              <span aria-hidden="true">→</span>
             </Link>
           ))}
         </div>

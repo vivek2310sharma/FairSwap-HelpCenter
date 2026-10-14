@@ -125,18 +125,25 @@ export function Support({
         <p>{description}</p>
       </div>
       <div className="support-actions">
-        {actions.map((action, index) => (
+        <div className="support-action-buttons">
+          {actions.map((action, index) => (
+            <a
+              key={action.href}
+              className={index ? "button secondary" : "button"}
+              href={action.href}
+            >
+              {action.label}
+            </a>
+          ))}
+        </div>
+        {actions.some((action) => action.isEmail) && (
           <a
-            key={action.href}
-            className={index ? "button secondary" : "button"}
-            href={action.href}
+            className="support-email-address"
+            href={`mailto:${SUPPORT_EMAIL}`}
           >
-            {action.label}
-            {action.isEmail && (
-              <span className="support-email-address">{SUPPORT_EMAIL}</span>
-            )}
+            {SUPPORT_EMAIL}
           </a>
-        ))}
+        )}
       </div>
     </section>
   );
@@ -152,7 +159,6 @@ export function SafetyCallout({ locale }: { locale: Locale }) {
         <h2>{c.safety}</h2>
         <p>{c.safetyText}</p>
       </div>
-      <span aria-hidden="true">→</span>
     </Link>
   );
 }

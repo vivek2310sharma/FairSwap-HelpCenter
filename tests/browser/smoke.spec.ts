@@ -210,6 +210,84 @@ test("account access offers email without requiring a sign-in, and links avoid d
   await expect(page.locator(".result").first()).toBeVisible();
   await expect(page.locator(".result").first()).not.toContainText("↗");
 });
+test("topic and business links have no decorative arrow symbols", async ({
+  page,
+}) => {
+  await page.goto("/en");
+  await expect(page.locator(".topic-card")).toHaveCount(7);
+  await expect(page.locator(".card-arrow")).toHaveCount(0);
+  await expect(page.locator(".safety-callout span[aria-hidden]")).toHaveCount(0);
+  expect(await page.locator(".topic-grid").innerText()).not.toMatch(/[→↗]/u);
+  await page.goto("/en/business");
+  expect(await page.locator(".business-grid").innerText()).not.toMatch(
+    /[→↗]/u,
+  );
+  await expect(page.locator(".business-card span[aria-hidden]")).toHaveCount(0);
+});
+
+test("support action buttons use equal heights and matching theme across desktop and phones", async ({
+  page,
+}) => {
+  for (const width of [1280, 768, 390, 320]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/en");
+    const buttons = page.locator(".support-action-buttons .button");
+    await expect(buttons).toHaveCount(2);
+    await expect(buttons.first()).toHaveText("Email support");
+    await expect(buttons.nth(1)).toHaveText("Open support tickets");
+    await expect(buttons.first()).toHaveAttribute(
+      "href",
+      "mailto:contact@fairswap.in",
+    );
+    await expect(page.locator(".support-email-address")).toHaveText(
+      "contact@fairswap.in",
+    );
+    const boxes = await buttons.evaluateAll((nodes) =>
+      nodes.map((node) => {
+        const box = node.getBoundingClientRect();
+        return { height: box.height, top: box.top };
+      }),
+    );
+    expect(Math.abs(boxes[0].height - boxes[1].height)).toBeLessThanOrEqual(1);
+    expect(boxes[0].height).toBeGreaterThanOrEqual(48);
+    if (width > 540) {
+      expect(Math.abs(boxes[0].top - boxes[1].top)).toBeLessThanOrEqual(1);
+    }
+    await expect(buttons.first()).toHaveCSS(
+      "background-color",
+      "rgb(4, 120, 87)",
+    );
+    await expect(buttons.nth(1)).toHaveCSS(
+      "background-color",
+      "rgb(255, 255, 255)",
+    );
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= window.innerWidth,
+      ),
+    ).toBe(true);
+  }
+});
+
+test("all ten languages show the same email-and-ticket help actions", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const locale of locales) {
+    await page.goto(`/${locale}`);
+    await expect(page.locator(".support-action-buttons .button")).toHaveCount(
+      2,
+    );
+    await expect(
+      page.locator('.support a[href="mailto:contact@fairswap.in"]').first(),
+    ).toHaveText(copy(locale).emailSupport);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+});
 test("search stays local and fails gracefully", async ({ page }) => {
   await page.goto("/bn/search");
   const requests: string[] = [];
