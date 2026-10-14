@@ -74,9 +74,7 @@ export function Home({ locale }: { locale: Locale }) {
         <section className="section">
           <div className="section-heading">
             <h2>{c.topics}</h2>
-            <Link href={`/${locale}/topics`}>
-              {c.allTopics}
-            </Link>
+            <Link href={`/${locale}/topics`}>{c.allTopics}</Link>
           </div>
           <TopicCards locale={locale} />
         </section>
@@ -251,9 +249,7 @@ export function ArticlePage({
         <aside className="related">
           <h2>{c.related}</h2>
           {related.map((a) => (
-            <Link key={a.id} href={`/${locale}/articles/${a.slug}`}>
-              {a.title}
-            </Link>
+            <Link key={a.id} href={`/${locale}/articles/${a.slug}`}>{a.title}</Link>
           ))}
           <Link href={`/${locale}/topics/${topic.slug}`}>{topic.title}</Link>
           <Link href={`/${locale}/contact`}>{c.contact}</Link>
@@ -332,9 +328,7 @@ export function ContactPage({ locale }: { locale: Locale }) {
             </div>
             <h2>{e.title}</h2>
             <p>{e.text}</p>
-            <a className="button secondary" href={e.href}>
-              {e.label}
-            </a>
+            <a className="button secondary" href={e.href}>{e.label}</a>
           </section>
         ))}
       </div>

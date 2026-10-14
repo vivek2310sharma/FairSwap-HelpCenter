@@ -7,14 +7,23 @@ export const TICKETS_HREF = "https://fairswap.in/account/support";
 export const GRIEVANCE_HREF = "https://fairswap.in/grievance";
 export const MARKETPLACE_HREF = "https://fairswap.in";
 
-export type HelpContext = "general" | "account" | "ticket" | "report" | "safety" | "grievance";
+export type HelpContext =
+  | "general"
+  | "account"
+  | "ticket"
+  | "report"
+  | "safety"
+  | "grievance";
 
-export function articleHelpContext(article: Pick<Article, "id" | "category">): HelpContext {
+export function articleHelpContext(
+  article: Pick<Article, "id" | "category">,
+): HelpContext {
   if (article.id === "create-account") return "account";
   if (article.id === "grievance-redressal") return "grievance";
   if (article.id === "report-a-listing") return "report";
   if (article.id === "submit-support-ticket") return "ticket";
-  if (article.category === "safety-scams" || article.id === "safe-meetup") return "safety";
+  if (article.category === "safety-scams" || article.id === "safe-meetup")
+    return "safety";
   return "general";
 }
 

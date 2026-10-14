@@ -117,7 +117,9 @@ export function Support({
   const c = copy(locale);
   const { description, actions } = helpOptions(c, context);
   return (
-    <section className={variant === "article" ? "article-escalation" : "support"}>
+    <section
+      className={variant === "article" ? "article-escalation" : "support"}
+    >
       <div>
         <h2>{c.needHelp}</h2>
         <p>{description}</p>
@@ -126,7 +128,7 @@ export function Support({
         {actions.map((action, index) => (
           <a
             key={action.href}
-            className={`button${index ? " secondary" : ""}${action.isEmail ? " email-action" : ""}`}
+            className={index ? "button secondary" : "button"}
             href={action.href}
           >
             {action.label}

@@ -503,7 +503,7 @@ p {
 .support-actions .button {
   flex-shrink: 1;
 }
-.support-actions .email-action {
+.support-actions a[href^="mailto:"] {
   flex-direction: column;
   gap: 0;
 }
