@@ -179,7 +179,7 @@ test("account access offers email without requiring a sign-in, and links avoid d
     await page.goto(`/${locale}/articles/create-account`);
     const help = page.locator(".article-escalation");
     await expect(
-      help.locator('a[href="mailto:contact@fairswap.in"]'),
+      help.locator('a[href="mailto:contact@fairswap.in"]').first(),
     ).toBeVisible();
     await expect(help).toContainText("contact@fairswap.in");
     await expect(
@@ -200,7 +200,9 @@ test("account access offers email without requiring a sign-in, and links avoid d
   ).toHaveCount(0);
   await page.goto("/en/articles/avoid-upi-scams");
   await expect(
-    page.locator('.article-escalation a[href="mailto:contact@fairswap.in"]'),
+    page
+      .locator('.article-escalation a[href="mailto:contact@fairswap.in"]')
+      .first(),
   ).toBeVisible();
   await expect(
     page.locator('.article-escalation a[href*="/account/support"]'),
