@@ -1,14 +1,16 @@
 # 07 — Codex Desktop kickoff (GPT-6.1 Sol when available)
 
+**Current user request (2026-10-14): execute ONE complete build, not the phase-by-phase prompts below. The authoritative complete assignment is docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md. The phased prompts below are historical alternatives and should NOT be used for this task.**
+
 ## Local setup
 
 1. Install/open Codex Desktop. Use GitHub-account-backed repository connection if offered. Clone `https://github.com/vivek2310sharma/FairSwap-HelpCenter.git` to your computer.
 2. Open the repository as a project. Select GPT-6.1 Sol in the Codex model picker **only if available to this account and Codex version**; otherwise select the latest capable coding model. Model availability changes; no model setting is committed in code.
-3. Open AGENTS.md, README.md and docs/01-10. Ask Codex to inspect them before changing source.
-4. Use a separate local git worktree or branch for each PR; never directly implement on main.
+3. Open AGENTS.md, README.md and docs/01-11. Ask Codex to inspect them before changing source.
+4. For this one-shot task, switch to the existing docs/help-center-v1-blueprint branch with draft PR #1; never implement on main or open separate milestone PRs.
 IMPORTANT: Do not implement Accept-Language negotiation, browser locale auto-detection, IP-driven redirects or forced local-language experiences. All visitors landing on / see English. Geo may only suggest. Urdu is excluded.
 5. Do not connect the new website to Supabase; do not request/commit secrets. It is a predominantly static public website; the optional Vercel region-hint endpoint is the only dynamic V1 route.
-6. First task is Phase 0 below. After passing build checks, review the diff and open a PR. Repeat Phases 1-4 sequentially.
+6. Follow docs/11 to implement all phases 0–4 and tests in a single task, push to existing draft PR #1, then the owner tests the Vercel preview. Do not merge to main.
 
 ## Ready-to-paste Codex prompt: Phase 0
 
