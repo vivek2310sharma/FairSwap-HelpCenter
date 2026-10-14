@@ -8,11 +8,14 @@ export function SearchBox({ locale, c }: { locale: Locale; c: Copy }) {
   const [query, setQuery] = useState(""),
     [entries, setEntries] = useState<SearchEntry[] | null>(null),
     [loading, setLoading] = useState(false),
+    [slowLoading, setSlowLoading] = useState(false),
     [failed, setFailed] = useState(false);
   async function load() {
     if (entries || loading) return;
     setLoading(true);
     setFailed(false);
+    // Fetch silently on focus. Only announce loading on a genuinely slow request.
+    const loadingDelay = window.setTimeout(() => setSlowLoading(true), 350);
     try {
       const response = await fetch(`/search/${locale}.json`);
       if (!response.ok) throw new Error("index");
@@ -33,6 +36,8 @@ export function SearchBox({ locale, c }: { locale: Locale; c: Copy }) {
     } catch {
       setFailed(true);
     } finally {
+      window.clearTimeout(loadingDelay);
+      setSlowLoading(false);
       setLoading(false);
     }
   }
@@ -59,10 +64,12 @@ export function SearchBox({ locale, c }: { locale: Locale; c: Copy }) {
         />
       </div>
       <div aria-live="polite" aria-atomic="true" className="search-status">
-        {loading
-          ? c.loading
-          : failed
-            ? c.searchError
+        {failed
+          ? c.searchError
+          : loading
+            ? slowLoading && query.trim()
+              ? c.loading
+              : ""
             : query.trim()
               ? `${c.results}: ${results.length}`
               : ""}
