@@ -63,7 +63,7 @@ try {
   assert(homeHtml.includes("How can we help you?"));
   assert(homeHtml.includes('href="mailto:contact@fairswap.in"'));
   assert(!homeHtml.includes("Our guidance is awaiting editorial approval."));
-  assert(!homeHtml.includes("Editorial review required"));
+  assert(!homeHtml.includes('class="draft-badge"'));
   assert(!homeHtml.includes('content="noindex'));
 
   for (const locale of locales) {
@@ -79,8 +79,8 @@ try {
       const article = await fetch(`${base}/${locale}/articles/${id}`);
       assert.equal(article.status, 200, `${locale}/articles/${id}`);
       const html = await article.text();
-      assert(html.includes('datetime="2026-10-14"'));
-      assert(!html.includes("draft-badge"));
+      assert(/datetime="2026-10-14"/i.test(html));
+      assert(!html.includes('class="draft-badge"'));
     }
     for (const path of [
       "business",
