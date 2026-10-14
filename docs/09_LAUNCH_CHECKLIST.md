@@ -2,12 +2,15 @@
 
 Status: NOT STARTED. Tick only after evidence is collected from actual build, browser and production checks.
 
+**Current one-shot Codex assignment:** docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md. It delivers a testable protected PREVIEW. Human editorial review and production release remain outside the assignment. Any AI-generated translations/legal/safety copy must be clearly identified as drafts in preview and not auto-published to production.
+
 ## Repository & build
 - [ ] Node LTS version and pnpm version pinned; lockfile committed, dependency changes reviewed.
 - [ ] Clean install / lint / typecheck / unit tests / content validation / production build succeed in CI.
 - [ ] GitHub Actions scoped least-privilege; protected main and required review/checks set.
 - [ ] No secrets, Supabase SDK, database, auth, form handlers, analytics tracking or payment integrations.
-- [ ] Preview deployments build on PRs and are reviewed before merge.
+- [ ] Existing draft PR #1 receives the entire working Codex implementation; Vercel preview builds on Git pushes and is reviewed before merge.
+- [ ] Preview can exercise draft translations safely with noindex and clear editorial-review labeling; production does not expose unreviewed articles.
 
 ## Visual, UX and accessibility
 - [ ] FairSwap visual tokens/logo approved; design uses same recognizable style on Web and native app journeys.
