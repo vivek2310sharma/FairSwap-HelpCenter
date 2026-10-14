@@ -156,9 +156,7 @@ export function FraudHelp({ locale }: { locale: Locale }) {
       <div>
         <h2>{copy(locale).safety}</h2>
         <p>{fraud[locale]}</p>
-        <a href="https://cybercrime.gov.in/">
-          cybercrime.gov.in
-        </a>
+        <a href="https://cybercrime.gov.in/">cybercrime.gov.in</a>
       </div>
     </aside>
   );
@@ -330,7 +328,9 @@ export function ContactPage({ locale }: { locale: Locale }) {
             </div>
             <h2>{e.title}</h2>
             <p>{e.text}</p>
-            <a className="button secondary" href={e.href}>{e.label}</a>
+            <a className="button secondary" href={e.href}>
+              {e.label}
+            </a>
           </section>
         ))}
       </div>
