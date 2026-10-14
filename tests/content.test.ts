@@ -26,8 +26,7 @@ describe("editorial contract", () => {
       expect(
         set.every(
           (a) =>
-            a.editorialStatus === "reviewed" &&
-            a.reviewedAt === "2026-10-14",
+            a.editorialStatus === "reviewed" && a.reviewedAt === "2026-10-14",
         ),
       ).toBe(true);
       if (locale !== "en") {

@@ -98,7 +98,9 @@ try {
 
   const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
   assert.equal((sitemap.match(/<loc>/g) || []).length, 260);
-  assert(sitemap.includes("https://help.fairswap.in/gu/articles/avoid-upi-scams"));
+  assert(
+    sitemap.includes("https://help.fairswap.in/gu/articles/avoid-upi-scams"),
+  );
   const robots = await (await fetch(`${base}/robots.txt`)).text();
   assert(robots.includes("Allow: /"));
   assert(robots.includes("Sitemap: https://help.fairswap.in/sitemap.xml"));

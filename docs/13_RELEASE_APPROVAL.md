@@ -10,7 +10,7 @@
 
 The product owner explicitly approved the V1 application, visual UX, the ten English reference guides and the existing ten-language content for publication. The release metadata marks the 100 localized article files as owner-reviewed on the approval date, and enables all ten site shells. This approval is recorded in GitHub history rather than inferred from passing automated tests.
 
-**Important qualification:** No evidence of *independent native-language review* across all nine non-English languages, or external legal-specialist review, has been provided. Do **not** represent the release as separately linguistically or legally certified. The owner authorized publication despite those uncompleted independent checks; track them as subsequent quality work, not as completed sign-offs. The 90 regional-language guides are older and generally less detailed than the revised English reference guides. Translation parity remains an open improvement in Issue #3.
+**Important qualification:** No evidence of _independent native-language review_ across all nine non-English languages, or external legal-specialist review, has been provided. Do **not** represent the release as separately linguistically or legally certified. The owner authorized publication despite those uncompleted independent checks; track them as subsequent quality work, not as completed sign-offs. The 90 regional-language guides are older and generally less detailed than the revised English reference guides. Translation parity remains an open improvement in Issue #3.
 
 ## Published product scope
 
