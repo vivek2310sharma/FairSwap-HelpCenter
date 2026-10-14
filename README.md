@@ -20,6 +20,7 @@ The independent, India-first, 10-language Help & Safety knowledge centre for [Fa
 9. [Launch readiness checklist](docs/09_LAUNCH_CHECKLIST.md)
 10. [Language selection and IP-based suggestions](docs/10_LANGUAGE_SELECTION.md)
 11. [One-shot full Codex implementation assignment](docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md)
+12. [Editorial fact-check and translation review handoff](docs/12_EDITORIAL_REVIEW_HANDOFF.md)
 
 Read [AGENTS.md](AGENTS.md) before asking a coding agent to change this repository.
 
