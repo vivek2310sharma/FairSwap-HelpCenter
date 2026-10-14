@@ -298,8 +298,18 @@ p {
 .result:last-child {
   border: 0;
 }
+.result:hover,
+.result:focus-visible {
+  /* The full card stays clickable without underlining the description. */
+  text-decoration: none;
+}
 .result strong {
   color: var(--green);
+}
+.result:hover strong,
+.result:focus-visible strong {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 .result p {
   font-size: 0.9rem;
