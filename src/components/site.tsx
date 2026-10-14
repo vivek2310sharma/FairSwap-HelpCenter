@@ -137,10 +137,7 @@ export function Support({
           ))}
         </div>
         {actions.some((action) => action.isEmail) && (
-          <a
-            className="support-email-address"
-            href={`mailto:${SUPPORT_EMAIL}`}
-          >
+          <a className="support-email-address" href={`mailto:${SUPPORT_EMAIL}`}>
             {SUPPORT_EMAIL}
           </a>
         )}

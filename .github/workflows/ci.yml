@@ -18,13 +18,6 @@ jobs:
           node-version: 24.15.0
       - run: npm install -g pnpm@11.25.0
       - run: pnpm install --frozen-lockfile
-      - name: Diagnose formatting differences
-        run: |
-          for file in src/components/site.tsx tests/browser/smoke.spec.ts; do
-            echo "DIFF_START: $file"
-            pnpm exec prettier "$file" | diff -u "$file" - || true
-            echo "DIFF_END: $file"
-          done
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm typecheck

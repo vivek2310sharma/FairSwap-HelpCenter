@@ -216,7 +216,9 @@ test("topic and business links have no decorative arrow symbols", async ({
   await page.goto("/en");
   await expect(page.locator(".topic-card")).toHaveCount(7);
   await expect(page.locator(".card-arrow")).toHaveCount(0);
-  await expect(page.locator(".safety-callout span[aria-hidden]")).toHaveCount(0);
+  await expect(page.locator(".safety-callout span[aria-hidden]")).toHaveCount(
+    0,
+  );
   expect(await page.locator(".topic-grid").innerText()).not.toMatch(/[→↗]/u);
   await page.goto("/en/business");
   expect(await page.locator(".business-grid").innerText()).not.toMatch(
