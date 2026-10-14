@@ -7,9 +7,9 @@
   "summary": "आधिकारिक मार्केटप्लेस से शुरू करें और वहां दिए मौजूदा साइन इन निर्देश मानें। ऐप के कदम अलग हो सकते हैं; उत्पाद समीक्षा बाकी है।",
   "category": "account",
   "tags": ["FairSwap खाता बनाएं"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }
 ---
@@ -23,5 +23,3 @@
 2. खाता विकल्प खोलकर वहां दिखाए निर्देश मानें। सत्यापन कोड निजी रखें; दूसरे व्यापारी को आपका OTP नहीं चाहिए।
 
 3. प्रवेश न हो तो इंटरनेट और दर्ज जानकारी जांचें। बार-बार कोड न मांगें; आधिकारिक संपर्क मार्गदर्शन से मदद लें।
-
-यह मार्गदर्शन संपादकीय स्वीकृति की प्रतीक्षा में है।

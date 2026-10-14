@@ -1,5 +1,7 @@
 # V1 implementation notes
 
+**Release addendum (2026-10-14):** This document originally described the pre-approval preview configuration. The product owner has since approved V1 for publication. See `docs/13_RELEASE_APPROVAL.md` for the authoritative release decision and remaining independent review gaps. The historical 'no approved locale' text below describes the original preview only.
+
 ## Architecture and runtime
 
 Next.js 16.4.0, React 19.3.0, strict TypeScript 5.9.3, Tailwind 4.3.3, Node 24.15.0, pnpm 11.25.0. Application lives at the repository root. Seven category slugs and ten shared article IDs are validated across exactly ten languages.

@@ -7,9 +7,9 @@
   "summary": "માર્કેટપ્લેસ પર વાતચીત વિકલ્પ હોય તો વસ્તુ વિશે પ્રશ્નો પૂછો. દરેક મોબાઇલ એપમાં સમાન વિકલ્પો માની ન લો.",
   "category": "messaging",
   "tags": ["વેચનારનો સુરક્ષિત સંપર્ક કરો"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/account/messages"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. મહત્વની સંમતિ વાતચીતમાં રાખો. અજાણી ચુકવણી સાઇટ કે ચકાસણી કોડ માગવાનું દબાણ ચેતવણી છે.
 
 3. ચુકવણી પહેલાં તપાસ નક્કી કરો. શંકાસ્પદ સંદેશ પર જવાબ રોકીને રિપોર્ટ કે બ્લોક વિકલ્પ જુઓ; ન મળે તો સહાય લો.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

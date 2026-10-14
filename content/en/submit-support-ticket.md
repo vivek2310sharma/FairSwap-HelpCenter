@@ -7,8 +7,8 @@
   "summary": "Signed-in users can open a support inquiry, view ticket statuses and reply on FairSwap; users who cannot sign in can email support.",
   "category": "reporting-support",
   "tags": ["Submit an existing support ticket"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/account/support"],
   "relatedIds": ["avoid-upi-scams"],
 }

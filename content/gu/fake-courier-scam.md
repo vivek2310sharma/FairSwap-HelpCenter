@@ -7,9 +7,9 @@
   "summary": "કહેવાતી ડિલિવરી ફી વસ્તુ વિના પૈસા લેવાનો રસ્તો હોઈ શકે. આ માર્ગદર્શન શિપિંગ કે ડિલિવરી સુરક્ષાનું વચન નથી.",
   "category": "safety-scams",
   "tags": ["નકલી કુરિયર ફીથી બચો", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/safety"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. કુરિયરની અધિકારિક સાઇટ કે સંપર્કથી સ્વતંત્ર તપાસો. ફક્ત વેપારીએ આપેલો નંબર કે લિંક ન વાપરો.
 
 3. દબાણમાં પૈસા ન આપો. આપ્યા હોય તો બેંકને તરત જણાવો અને અધિકારિક રિપોર્ટ માટે સંદર્ભ અને વાતચીત રાખો.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

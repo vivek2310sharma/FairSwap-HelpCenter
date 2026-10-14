@@ -7,9 +7,9 @@
   "summary": "पैसे मिळवण्यासाठी UPI PIN किंवा अनोळखी व्यक्तीचा पेमेंट QR स्कॅन करणे आवश्यक नाही. कलेक्ट विनंती पैसे देण्यासाठी असते.",
   "category": "safety-scams",
   "tags": ["UPI फसवणूक टाळा", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
@@ -23,5 +23,3 @@
 2. स्वतःच्या बँक किंवा UPI ॲपमध्ये जमा तपासा. पावती, संदेश किंवा स्क्रीनशॉट बनावट असू शकतो. OTP, PIN किंवा स्क्रीन नियंत्रण देऊ नका.
 
 3. पैसे गेले असल्यास बँक किंवा पेमेंट ॲप मदतीशी त्वरित संपर्क करा. खालील अधिकृत माध्यमांतून आर्थिक सायबर फसवणूक कळवा; परताव्याची हमी नाही.
-
-हे मार्गदर्शन संपादकीय मंजुरीच्या प्रतीक्षेत आहे.

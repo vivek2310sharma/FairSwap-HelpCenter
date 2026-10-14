@@ -7,8 +7,8 @@
   "summary": "On FairSwap Web, use Contact Seller on a listing to start a conversation and keep payment links, credentials and personal documents out of chats.",
   "category": "messaging",
   "tags": ["Contact a seller safely"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/account/messages"],
   "relatedIds": ["avoid-upi-scams"],
 }

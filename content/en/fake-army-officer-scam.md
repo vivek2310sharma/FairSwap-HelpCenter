@@ -8,8 +8,8 @@
   "category": "safety-scams",
   "tags":
     ["Recognise false army-officer identities", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://cybercrime.gov.in/"],
   "relatedIds": ["avoid-upi-scams"],
 }

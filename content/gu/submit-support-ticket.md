@@ -7,9 +7,9 @@
   "summary": "ખાનગી ટિકિટ અને જવાબ FairSwap પર છે, આ કેન્દ્ર પર નહીં. માર્કેટપ્લેસમાં સાઇન ઇન જરૂરી હોઈ શકે.",
   "category": "reporting-support",
   "tags": ["હાલની સહાય ટિકિટ મોકલો"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/account/support"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. શું થયું, શું અપેક્ષા હતી અને કયો પ્લેટફોર્મ હતો જણાવો. સંબંધિત જાહેરાતની વિગતો આપો; સ્ક્રીનશોટમાં ખાનગી માહિતી છુપાવો.
 
 3. ખાતા સહાયમાં જવાબ જુઓ. ટિકિટ જાહેર ન કરો કે નક્કી સમયની અપેક્ષા ન રાખો. પ્રવેશ ન થાય તો સંપર્ક માર્ગદર્શન જુઓ.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

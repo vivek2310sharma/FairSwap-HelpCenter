@@ -7,8 +7,8 @@
   "summary": "Use FairSwap's existing grievance page for its official contact method, required details and notices; it is separate from routine support.",
   "category": "rules-policies",
   "tags": ["Use the formal grievance route"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/grievance"],
   "relatedIds": ["submit-support-ticket"],
 }

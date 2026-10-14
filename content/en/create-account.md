@@ -7,8 +7,8 @@
   "summary": "Create a FairSwap Web account with your email, a password and a display name. If you cannot sign in, use email support without logging in.",
   "category": "account",
   "tags": ["Create a FairSwap account"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }

@@ -7,8 +7,8 @@
   "summary": "Report suspicious marketplace activity using available listing, user or chat controls, or use email support if no suitable report control is visible.",
   "category": "reporting-support",
   "tags": ["Report a listing or conversation"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/contact"],
   "relatedIds": ["avoid-upi-scams"],
 }

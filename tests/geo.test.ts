@@ -45,7 +45,7 @@ describe("optional state suggestion", () => {
     ])
       expect(suggest(country, region, locales)).toBe(null);
   });
-  it("returns null while human approvals are pending and never leaks geo data", async () => {
+  it("suggests an approved locale without leaking IP or state", async () => {
     const response = GET(
       new Request("https://test/api/language-suggestion", {
         headers: {
@@ -56,7 +56,10 @@ describe("optional state suggestion", () => {
       }),
     );
     expect(response.headers.get("cache-control")).toBe("private, no-store");
-    expect(await response.json()).toEqual({ locale: null });
+    expect(await response.json()).toEqual({
+      locale: "gu",
+      label: "ગુજરાતી",
+    });
     expect(response.headers.get("set-cookie")).toBe(null);
   });
 });

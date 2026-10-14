@@ -7,9 +7,9 @@
   "summary": "ಅಧಿಕೃತ ಮಾರುಕಟ್ಟೆಯಲ್ಲಿ ಈಗಿನ ಪ್ರವೇಶ ಸೂಚನೆ ಅನುಸರಿಸಿ. ಆ್ಯಪ್ ಹಂತಗಳು ಬದಲಾಗಬಹುದು; ಉತ್ಪನ್ನ ಪರಿಶೀಲನೆ ಬೇಕು.",
   "category": "account",
   "tags": ["FairSwap ಖಾತೆ ರಚಿಸಿ"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ಖಾತೆ ಆಯ್ಕೆಯಲ್ಲಿ ಪರದೆಯ ಸೂಚನೆ ಅನುಸರಿಸಿ. ಪರಿಶೀಲನೆ ಕೋಡ್ ರಹಸ್ಯವಾಗಿಡಿ; ಇನ್ನೊಬ್ಬ ವ್ಯಾಪಾರಿಗೆ ನಿಮ್ಮ OTP ಬೇಕಿಲ್ಲ.
 
 3. ಪ್ರವೇಶ ವಿಫಲವಾದರೆ ಸಂಪರ್ಕ ಮತ್ತು ವಿವರ ಪರಿಶೀಲಿಸಿ. ಪದೇಪದೇ ಕೋಡ್ ಕೇಳದೆ ಅಧಿಕೃತ ಸಂಪರ್ಕ ಮಾರ್ಗದಿಂದ ಸಹಾಯ ಪಡೆಯಿರಿ.
-
-ಈ ಮಾರ್ಗದರ್ಶನ ಸಂಪಾದಕೀಯ ಅನುಮೋದನೆಗಾಗಿ ಕಾಯುತ್ತಿದೆ.

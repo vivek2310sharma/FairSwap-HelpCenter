@@ -2,8 +2,8 @@
 
 The independent, India-first, 10-language Help & Safety knowledge centre for [FairSwap](https://fairswap.in).
 
-**Proposed public address:** https://help.fairswap.in  
-**Status:** V1 implemented for protected preview testing; editorial approvals and production release pending.
+**Public address:** https://help.fairswap.in  
+**Status:** Product-owner approval recorded 2026-10-14; production release preparation underway. Independent native-language and legal-specialist reviews are not evidenced. See docs/13_RELEASE_APPROVAL.md.
 **Git strategy:** Work on branches; preview, test, review and merge into main.  
 **V1:** Static Next.js content with 10 languages, English default, optional IP-state language suggestion, no database and no Supabase project or integration. The suggestion uses one minimal Vercel Function; it does not require GPS permission.
 
@@ -46,13 +46,13 @@ pnpm dev
 
 `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm content:check`, `pnpm build`, and `pnpm test:browser` verify the application. Install Chromium with `pnpm exec playwright install chromium` before browser tests. `pnpm format:check` enforces formatting. GitHub Actions runs these checks plus a separate production-mode build and `pnpm test:production`.
 
-Local development and Vercel **preview** builds expose all 100 Markdown drafts with conspicuous review notices and noindex. Vercel **production** builds hide drafts and unapproved locale shells, emit empty draft-free search indexes and serve an English editorial-hold page. Production cannot be enabled by a draft-visibility flag. Human approval is required for the page-copy registry in `src/lib/editorial.ts` and all ten translations of each article before publishing. Regional suggestions stay disabled until their destination language is fully approved.
+Local development and Vercel **preview** builds remain noindex and may expose marked future drafts. On 2026-10-14 the product owner approved the current ten-language V1 for release; all 100 article files and ten locale shells now carry this OWNER approval. Vercel **production** builds publish reviewed articles only, generate the ten search indexes and enable optional state-based language suggestions without forced redirects. A draft-visibility flag cannot publish future unreviewed articles. Independent native-language and legal-specialist reviews have not been documented; follow-up checks are tracked in Issue #3.
 
 See [implementation notes](docs/12_IMPLEMENTATION_NOTES.md) for routing, source provenance, security decisions and editorial steps. The existing Vercel Git integration builds PR previews; no new deployment token, database, project or custom domain is needed.
 
 ## Repository status and constraints
 
-This planning pack is the starting contract for Codex Desktop (GPT-6.1 Sol where available). The approved current execution approach is ONE full implementation task on the existing docs/help-center-v1-blueprint branch, updating draft PR #1; see docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md. After Codex pushes code, use the existing linked Vercel project to test a preview. Do not merge to main or represent unreviewed translations as published content until the owner approves.
+The original V1 was implemented using Codex Desktop and tested in a protected Vercel preview. The product owner authorized the content and release on 2026-10-14. Track changes and release evidence in PR #1, docs/13_RELEASE_APPROVAL.md and the launch checklist. Preserve the review gate for any future additions or changes.
 
 Reference URLs: [DBA Help](https://support.dba.dk/hc/da), [DBA Marketplace](https://www.dba.dk/), [Vercel Git](https://vercel.com/docs/git/vercel-for-github).
 

@@ -7,9 +7,9 @@
   "summary": "વસ્તુ તપાસી શકો અને સુરક્ષિત નીકળી શકો ત્યાં વ્યવહાર કરો. પ્રોફાઇલ કે વાતચીત સુરક્ષાની ખાતરી નથી.",
   "category": "buying-selling",
   "tags": ["સુરક્ષિત મુલાકાત નક્કી કરો"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/safety"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. વસ્તુ, ભાગો અને સ્થિતિ તપાસો. શક્ય હોય તો ચલાવી જુઓ. દબાણ કે બદલાયેલી વ્યવસ્થા હોય તો સોદો છોડી દો.
 
 3. પોતાના બેંક કે ચુકવણી એપમાં પૈસા તપાસો, સ્ક્રીનશોટથી નહીં. OTP કે UPI PIN ન આપો. મુલાકાત માટે અગાઉથી જમા ન મોકલો.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

@@ -7,9 +7,9 @@
   "summary": "ଟଙ୍କା ପାଇବାକୁ UPI PIN ବା ଅଜଣା ବ୍ୟକ୍ତିଙ୍କ ପେମେଣ୍ଟ QR ସ୍କାନ ଦରକାର ନାହିଁ। କଲେକ୍ଟ ଅନୁରୋଧ ଟଙ୍କା ଦେବା ପାଇଁ।",
   "category": "safety-scams",
   "tags": ["UPI ଠକେଇରୁ ବଞ୍ଚନ୍ତୁ", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ନିଜ ବ୍ୟାଙ୍କ ବା UPI ଆପ୍‌ରେ ଜମା ଦେଖନ୍ତୁ। ରସିଦ, ସନ୍ଦେଶ ବା ସ୍କ୍ରିନସଟ୍ ନକଲି ହୋଇପାରେ। OTP, PIN ବା ପରଦା ନିୟନ୍ତ୍ରଣ ଦିଅନ୍ତୁ ନାହିଁ।
 
 3. ଟଙ୍କା ହରାଇଲେ ବ୍ୟାଙ୍କ ବା ପେମେଣ୍ଟ ଆପ୍ ସହାୟତାକୁ ତୁରନ୍ତ କୁହନ୍ତୁ। ନିମ୍ନ ଅଧିକୃତ ମାର୍ଗରେ ଆର୍ଥିକ ସାଇବର ଠକେଇ ଜଣାନ୍ତୁ; ଫେରସ୍ତ ନିଶ୍ଚିତ ନୁହେଁ।
-
-ଏହି ମାର୍ଗଦର୍ଶନ ସମ୍ପାଦକୀୟ ଅନୁମୋଦନ ଅପେକ୍ଷାରେ ଅଛି।

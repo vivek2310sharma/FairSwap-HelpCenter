@@ -7,8 +7,8 @@
   "summary": "On FairSwap Web, start a listing while signed in, save its draft and submit for review when that category permits submission.",
   "category": "listings",
   "tags": ["Post a useful listing"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/account/listings/new"],
   "relatedIds": ["avoid-upi-scams"],
 }

@@ -7,8 +7,8 @@
   "summary": "Never enter a UPI PIN, scan someone else's QR code or approve a collect request just to receive money. Verify credits in your own app.",
   "category": "safety-scams",
   "tags": ["Avoid UPI payment scams", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }

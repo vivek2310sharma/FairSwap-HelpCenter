@@ -7,9 +7,9 @@
   "summary": "ଅଧିକୃତ ବଜାରରେ ବର୍ତ୍ତମାନ ପ୍ରବେଶ ନିର୍ଦ୍ଦେଶ ମାନନ୍ତୁ। ଆପ୍‌ର ପଦକ୍ଷେପ ଅଲଗା ହୋଇପାରେ; ଉତ୍ପାଦ ସମୀକ୍ଷା ବାକି।",
   "category": "account",
   "tags": ["FairSwap ଖାତା ତିଆରି କରନ୍ତୁ"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ଖାତା ବିକଳ୍ପରେ ପରଦାର ନିର୍ଦ୍ଦେଶ ମାନନ୍ତୁ। ଯାଞ୍ଚ କୋଡ୍ ଗୋପନ ରଖନ୍ତୁ; ଅନ୍ୟ ବ୍ୟବସାୟୀଙ୍କୁ ଆପଣଙ୍କ OTP ଦରକାର ନାହିଁ।
 
 3. ପ୍ରବେଶ ନହେଲେ ସଂଯୋଗ ଓ ତଥ୍ୟ ଯାଞ୍ଚ କରନ୍ତୁ। ବାରମ୍ବାର କୋଡ୍ ନମାଗି ଅଧିକୃତ ଯୋଗାଯୋଗ ମାର୍ଗରେ ସାହାଯ୍ୟ ନିଅନ୍ତୁ।
-
-ଏହି ମାର୍ଗଦର୍ଶନ ସମ୍ପାଦକୀୟ ଅନୁମୋଦନ ଅପେକ୍ଷାରେ ଅଛି।

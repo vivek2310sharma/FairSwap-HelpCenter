@@ -7,9 +7,9 @@
   "summary": "આધિકારિક માર્કેટપ્લેસથી શરૂ કરો અને હાલની સાઇન ઇન સૂચનાઓ અનુસરો. એપના પગલાં અલગ હોઈ શકે; ઉત્પાદન સમીક્ષા બાકી છે.",
   "category": "account",
   "tags": ["FairSwap ખાતું બનાવો"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ખાતાનો વિકલ્પ ખોલીને દેખાતી સૂચનાઓ અનુસરો. ચકાસણી કોડ ખાનગી રાખો; બીજા વેપારીને તમારો OTP જરૂરી નથી.
 
 3. પ્રવેશ ન થાય તો જોડાણ અને માહિતી તપાસો. વારંવાર કોડ ન માગો; અધિકારિક સંપર્ક માર્ગદર્શનથી મદદ લો.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

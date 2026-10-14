@@ -37,7 +37,12 @@ for (const locale of locales)
     await page.getByRole("searchbox").fill("UPI");
     await expect(page.locator(".result").first()).toBeVisible();
     await page.locator(".result").first().click();
-    await expect(page.locator(".draft-badge")).toHaveText(c.review);
+    await expect(page.locator(".draft-badge")).toHaveCount(0);
+    await expect(page.locator(".prose")).toBeVisible();
+    await expect(page.locator("article time")).toHaveAttribute(
+      "datetime",
+      "2026-10-14",
+    );
     const stepCount = await page.locator(".prose ol li").count();
     expect(stepCount).toBeGreaterThanOrEqual(3);
     for (const path of [
@@ -360,7 +365,7 @@ test("hint can only switch after a click and is session-dismissable", async ({
   await expect(page).toHaveURL(/\/gu$/);
   await expect(page.locator(".suggestion")).toHaveCount(0);
 });
-test("headers, hint null and preview SEO", async ({ request }) => {
+test("headers, approved locale hint and preview SEO", async ({ request }) => {
   const r = await request.get("/en");
   expect(r.headers()["x-frame-options"]).toBe("DENY");
   expect(r.headers()["x-content-type-options"]).toBe("nosniff");
@@ -375,7 +380,10 @@ test("headers, hint null and preview SEO", async ({ request }) => {
       "x-vercel-ip-country-region": "GJ",
     },
   });
-  expect(await hint.json()).toEqual({ locale: null });
+  expect(await hint.json()).toEqual({
+    locale: "gu",
+    label: "ગુજરાતી",
+  });
   expect(hint.headers()["cache-control"]).toBe("private, no-store");
   expect((await request.get("/robots.txt")).status()).toBe(200);
   expect(await (await request.get("/robots.txt")).text()).toContain(

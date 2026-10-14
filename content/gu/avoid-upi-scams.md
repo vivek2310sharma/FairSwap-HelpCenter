@@ -7,9 +7,9 @@
   "summary": "પૈસા મેળવવા UPI PIN નાખવો કે અજાણ્યાનો ચુકવણી QR સ્કેન કરવો જરૂરી નથી. કલેક્શન વિનંતી પૈસા આપવા માટે છે.",
   "category": "safety-scams",
   "tags": ["UPI છેતરપિંડીથી બચો", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
@@ -23,5 +23,3 @@
 2. પોતાના બેંક કે UPI એપમાં જમા તપાસો. રસીદ, સંદેશ કે સ્ક્રીનશોટ નકલી હોઈ શકે. OTP, PIN કે સ્ક્રીનનો કાબૂ ન આપો.
 
 3. પૈસા ગયા હોય તો બેંક કે ચુકવણી એપ સહાયને તરત જણાવો. નીચેના અધિકારિક માધ્યમથી નાણાકીય સાઇબર છેતરપિંડી જણાવો; પૈસા પાછા મળવાની ખાતરી નથી.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

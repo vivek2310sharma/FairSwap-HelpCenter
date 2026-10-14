@@ -7,9 +7,9 @@
   "summary": "అధికారిక మార్కెట్‌లో ప్రస్తుత సైన్ ఇన్ సూచనలు అనుసరించండి. యాప్ దశలు మారవచ్చు; ఉత్పత్తి సమీక్ష అవసరం.",
   "category": "account",
   "tags": ["FairSwap ఖాతా సృష్టించండి"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/auth/sign-up"],
   "relatedIds": ["submit-support-ticket"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ఖాతా ఎంపిక తెరిచి తెరపై సూచనలు అనుసరించండి. ధృవీకరణ కోడ్ రహస్యంగా ఉంచండి; ఇతర వ్యాపారికి మీ OTP అవసరం లేదు.
 
 3. ప్రవేశం విఫలమైతే కనెక్షన్, ఇచ్చిన వివరాలు చూడండి. పదేపదే కోడ్ అడగకుండా అధికారిక సంప్రదింపు సూచనలతో సహాయం పొందండి.
-
-ఈ మార్గదర్శకం సంపాదకీయ ఆమోదం కోసం వేచి ఉంది.

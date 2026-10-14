@@ -8,21 +8,26 @@ import {
 import { copy } from "../src/lib/copy";
 import { topics } from "../src/lib/topics";
 import { articleIds, locales, categories } from "../src/lib/locales";
+
 const all = loadAll();
+
 describe("editorial contract", () => {
-  it("validates 100 original locale-matched articles and all related links", () => {
+  it("validates 100 locale-matched articles and all related links", () => {
     expect(all).toHaveLength(100);
     expect(() => validateCollection(all)).not.toThrow();
   });
+
   for (const locale of locales) {
-    it(`${locale}: has translated UI, taxonomy and all ten drafts`, () => {
+    it(`${locale}: has reviewed localized guides`, () => {
       expect(Object.values(copy(locale)).every((v) => v.length > 0)).toBe(true);
       expect(topics(locale).map((t) => t.slug)).toEqual([...categories]);
       const set = all.filter((a) => a.locale === locale);
       expect(set.map((a) => a.id).sort()).toEqual([...articleIds].sort());
       expect(
         set.every(
-          (a) => a.editorialStatus === "draft" && a.reviewedAt === null,
+          (a) =>
+            a.editorialStatus === "reviewed" &&
+            a.reviewedAt === "2026-10-14",
         ),
       ).toBe(true);
       if (locale !== "en") {
@@ -36,6 +41,7 @@ describe("editorial contract", () => {
       }
     });
   }
+
   it("rejects invalid locale, category, date, status, id and metadata", () => {
     const base = articleSchema.parse(
       Object.fromEntries(
@@ -50,17 +56,20 @@ describe("editorial contract", () => {
       { id: "no-id" },
       { sourceRefs: ["javascript:alert(1)"] },
       { editorialStatus: "reviewed", reviewedAt: null },
-      { reviewedAt: "2026-10-14" },
-    ])
+      { editorialStatus: "draft", reviewedAt: "2026-10-14" },
+    ]) {
       expect(articleSchema.safeParse({ ...base, ...invalid }).success).toBe(
         false,
       );
+    }
   });
+
   it("accepts valid metadata without the body", () => {
     const { body, ...metadata } = all[0];
     expect(body.length).toBeGreaterThan(200);
     expect(articleSchema.safeParse(metadata).success).toBe(true);
   });
+
   it("rejects duplicate slugs and orphan/self relations", () => {
     expect(() => validateCollection([...all, all[0]])).toThrow();
     expect(() =>
@@ -69,29 +78,30 @@ describe("editorial contract", () => {
       ),
     ).toThrow();
   });
-  it("never publishes a partially reviewed collection", () => {
-    const changed = all.map((a) =>
-      a.locale === "en"
+
+  it("never publishes a partially reviewed article set", () => {
+    const partial = all.map((a) =>
+      a.id === "create-account" && a.locale === "hi"
         ? {
             ...a,
-            editorialStatus: "reviewed" as const,
-            reviewedAt: "2026-10-14",
+            editorialStatus: "draft" as const,
+            reviewedAt: null,
           }
         : a,
     );
-    expect(changed.every((a) => !isPublished(a, changed))).toBe(true);
+    expect(
+      partial
+        .filter((a) => a.id === "create-account")
+        .every((a) => !isPublished(a, partial)),
+    ).toBe(true);
+    expect(
+      partial
+        .filter((a) => a.id === "post-a-listing")
+        .every((a) => isPublished(a, partial)),
+    ).toBe(true);
   });
-  it("requires approval of every translation before an article set is public", () => {
-    const approved = all.map((a) =>
-      a.id === "create-account"
-        ? {
-            ...a,
-            editorialStatus: "reviewed" as const,
-            reviewedAt: "2026-10-14",
-          }
-        : a,
-    );
-    expect(approved.filter((a) => isPublished(a, approved))).toHaveLength(10);
-    expect(all.filter((a) => isPublished(a, all))).toHaveLength(0);
+
+  it("publishes all 100 owner-approved translations", () => {
+    expect(all.filter((a) => isPublished(a, all))).toHaveLength(100);
   });
 });

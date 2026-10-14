@@ -1,8 +1,8 @@
 import { labels } from "@/lib/locales";
 import { approvedShellLocales } from "@/lib/editorial";
 import { suggest } from "@/lib/geo";
-// No locale has completed human UI/product/legal review yet. Reviewers must
-// explicitly approve the shell AND all ten launch articles before adding one.
+// Suggest only locales enabled by the publication allowlist.
+// Owner sign-off is recorded in docs/13_RELEASE_APPROVAL.md.
 export function GET(request: Request) {
   // Build validation guarantees each approved shell has all ten approved
   // priority articles. Keep this function free of content IO and parsers.

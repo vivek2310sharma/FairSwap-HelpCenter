@@ -7,8 +7,8 @@
   "summary": "Be wary of repeated courier, insurance and release-fee demands; FairSwap does not provide its own shipping, escrow or payment protection.",
   "category": "safety-scams",
   "tags": ["Avoid fake courier fees", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/safety"],
   "relatedIds": ["avoid-upi-scams"],
 }

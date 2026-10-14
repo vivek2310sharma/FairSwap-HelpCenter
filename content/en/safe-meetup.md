@@ -7,8 +7,8 @@
   "summary": "Choose a public meeting place, inspect the item before exchanging money and confirm payment only in your own bank or UPI app.",
   "category": "buying-selling",
   "tags": ["Arrange a safe meetup"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
   "sourceRefs": ["https://fairswap.in/safety"],
   "relatedIds": ["avoid-upi-scams"],
 }

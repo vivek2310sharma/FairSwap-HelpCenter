@@ -1,6 +1,6 @@
 # Codex / AI Contributor Contract
 
-Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 through docs/11 before substantial implementation. Treat this as a production commercial website that is not yet live.
+Scope: This repository ONLY, FairSwap-HelpCenter. Read README.md and docs/01 through docs/11 before substantial implementation. Treat this as a production-bound site. Owner approval to publish V1 was recorded on 2026-10-14 (docs/13_RELEASE_APPROVAL.md). Preserve future-content review gates.
 
 ## Non-negotiable decisions
 

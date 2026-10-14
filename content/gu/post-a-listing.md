@@ -7,9 +7,9 @@
   "summary": "સ્પષ્ટ વિગતો બીજા વ્યક્તિને વસ્તુ સમજવામાં મદદ કરે છે. ઉપલબ્ધતા અને સમીક્ષાનાં પગલાં હાલના માર્કેટપ્લેસમાં તપાસવાનાં છે.",
   "category": "listings",
   "tags": ["ઉપયોગી જાહેરાત મૂકો"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/account/listings/new"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. FairSwap પર ઉપલબ્ધ જાહેરાત વિકલ્પ ખોલો. યોગ્ય શ્રેણી અને સાચી વિગતો આપો; પહેલાં સ્વીકાર્ય ઉપયોગ નીતિ વાંચો.
 
 3. મોકલતાં પહેલાં વિગતો તપાસો. તરત દેખાવું કે પ્રચાર મળવો માની ન લો. ન દેખાય તો ખાતું તપાસીને હાલની સહાય લો.
-
-આ માર્ગદર્શન સંપાદકીય મંજૂરીની રાહમાં છે.

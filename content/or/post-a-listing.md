@@ -7,9 +7,9 @@
   "summary": "ସ୍ପଷ୍ଟ ବିବରଣୀ ସାମଗ୍ରୀ ବୁଝିବାରେ ସାହାଯ୍ୟ କରେ। ପ୍ରକାଶନ ଓ ସମୀକ୍ଷା ପଦକ୍ଷେପ ବର୍ତ୍ତମାନ ବଜାରରେ ଯାଞ୍ଚ କରିବାକୁ ହେବ।",
   "category": "listings",
   "tags": ["ଉପଯୋଗୀ ବିଜ୍ଞାପନ ଦିଅନ୍ତୁ"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://fairswap.in/contact"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://fairswap.in/account/listings/new"],
   "relatedIds": ["avoid-upi-scams"],
 }
 ---
@@ -23,5 +23,3 @@
 2. FairSwap ରେ ବିଜ୍ଞାପନ ବିକଳ୍ପ ଥିଲେ ଖୋଲନ୍ତୁ। ସଠିକ୍ ଶ୍ରେଣୀ ଓ ସତ୍ୟ ବିବରଣୀ ଦିଅନ୍ତୁ; ଆଗରୁ ଗ୍ରହଣୀୟ ବ୍ୟବହାର ନୀତି ପଢ଼ନ୍ତୁ।
 
 3. ପଠାଇବା ଆଗରୁ ତଥ୍ୟ ଦେଖନ୍ତୁ। ତୁରନ୍ତ ଦେଖାଯିବ ବା ପ୍ରଚାର ମିଳିବ ଭାବନ୍ତୁ ନାହିଁ। ନଦେଖିଲେ ଖାତା ଦେଖି ସହାୟତା ନିଅନ୍ତୁ।
-
-ଏହି ମାର୍ଗଦର୍ଶନ ସମ୍ପାଦକୀୟ ଅନୁମୋଦନ ଅପେକ୍ଷାରେ ଅଛି।

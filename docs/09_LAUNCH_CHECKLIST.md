@@ -1,6 +1,6 @@
 # 09 — Launch readiness, test matrix and rollout acceptance
 
-Status: NOT STARTED. Tick only after evidence is collected from actual build, browser and production checks.
+Status: V1 release authorized by the product owner on 2026-10-14. Technical CI, production deployment and post-deploy checks must still pass. Mark each check only after its evidence is collected. Independent linguistic/legal specialist sign-off remains undocumented.
 
 **Current one-shot Codex assignment:** docs/11_CODEX_ONE_SHOT_IMPLEMENTATION.md. It delivers a testable protected PREVIEW. Human editorial review and production release remain outside the assignment. Any AI-generated translations/legal/safety copy must be clearly identified as drafts in preview and not auto-published to production.
 

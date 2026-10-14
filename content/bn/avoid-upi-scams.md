@@ -7,9 +7,9 @@
   "summary": "অর্থ পেতে UPI PIN দিতে বা অপরিচিতের পেমেন্ট QR স্ক্যান করতে হয় না। কালেক্ট অনুরোধ অর্থ দেওয়ার জন্য।",
   "category": "safety-scams",
   "tags": ["UPI প্রতারণা এড়ান", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
@@ -23,5 +23,3 @@
 2. নিজের ব্যাংক বা UPI অ্যাপে জমা দেখুন। রসিদ, বার্তা বা স্ক্রিনশট নকল হতে পারে। OTP, PIN বা পর্দার নিয়ন্ত্রণ দেবেন না।
 
 3. অর্থ হারালে ব্যাংক বা পেমেন্ট অ্যাপ সহায়তায় দ্রুত যোগাযোগ করুন। নিচের সরকারি মাধ্যমে আর্থিক সাইবার প্রতারণা জানান; অর্থ ফেরতের নিশ্চয়তা নেই।
-
-এই নির্দেশিকা সম্পাদকীয় অনুমোদনের অপেক্ষায় আছে।

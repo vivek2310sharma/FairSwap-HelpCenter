@@ -264,7 +264,6 @@ export function SafetyPage({ locale }: { locale: Locale }) {
         <span className="eyebrow">FairSwap</span>
         <h1>{c.safety}</h1>
         <p className="lead">{c.safetyText}</p>
-        <p className="draft-badge">{c.review}</p>
       </header>
       <ArticleCards
         locale={locale}

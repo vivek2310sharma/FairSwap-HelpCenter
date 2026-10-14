@@ -7,9 +7,9 @@
   "summary": "ಹಣ ಪಡೆಯಲು UPI PIN ಹಾಕುವುದು ಅಥವಾ ಅಪರಿಚಿತರ ಪಾವತಿ QR ಸ್ಕ್ಯಾನ್ ಮಾಡುವುದು ಬೇಕಿಲ್ಲ. ಕಲೆಕ್ಟ್ ವಿನಂತಿ ಹಣ ಕೊಡಲು ಕೇಳುತ್ತದೆ.",
   "category": "safety-scams",
   "tags": ["UPI ವಂಚನೆ ತಪ್ಪಿಸಿ", "UPI", "QR", "OTP", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
-  "sourceRefs": ["https://cybercrime.gov.in/"],
+  "reviewedAt": "2026-10-14",
+  "editorialStatus": "reviewed",
+  "sourceRefs": ["https://www.npci.org.in/fraud-awareness"],
   "relatedIds": ["safe-meetup"],
 }
 ---
@@ -23,5 +23,3 @@
 2. ನಿಮ್ಮ ಬ್ಯಾಂಕ್ ಅಥವಾ UPI ಆ್ಯಪ್‌ನಲ್ಲಿ ಜಮೆ ನೋಡಿ. ರಸೀದಿ, ಸಂದೇಶ, ಸ್ಕ್ರೀನ್‌ಶಾಟ್ ನಕಲಿ ಇರಬಹುದು. OTP, PIN ಅಥವಾ ಪರದೆ ನಿಯಂತ್ರಣ ಕೊಡಬೇಡಿ.
 
 3. ಹಣ ಕಳೆದುಕೊಂಡರೆ ಬ್ಯಾಂಕ್ ಅಥವಾ ಪಾವತಿ ಆ್ಯಪ್ ಸಹಾಯ ಸಂಪರ್ಕಿಸಿ. ಕೆಳಗಿನ ಅಧಿಕೃತ ಮಾರ್ಗದಲ್ಲಿ ಹಣಕಾಸು ಸೈಬರ್ ವಂಚನೆ ವರದಿ ಮಾಡಿ; ಹಣ ಮರಳುವ ಭರವಸೆ ಇಲ್ಲ.
-
-ಈ ಮಾರ್ಗದರ್ಶನ ಸಂಪಾದಕೀಯ ಅನುಮೋದನೆಗಾಗಿ ಕಾಯುತ್ತಿದೆ.
