@@ -38,7 +38,8 @@ for (const locale of locales)
     await expect(page.locator(".result").first()).toBeVisible();
     await page.locator(".result").first().click();
     await expect(page.locator(".draft-badge")).toHaveText(c.review);
-    expect(await page.locator(".prose ol li").count()).toBeGreaterThanOrEqual(3);
+    const stepCount = await page.locator(".prose ol li").count();
+    expect(stepCount).toBeGreaterThanOrEqual(3);
     for (const path of [
       "business",
       "business/boost",
