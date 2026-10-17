@@ -9,7 +9,7 @@ import { SearchBox } from "./search-box";
 import { Suggestion } from "./suggestion";
 import { Breadcrumbs, SafetyCallout, Support } from "./site";
 import { Icon } from "./icon";
-import { articleHelpContext, SUPPORT_EMAIL, EMAIL_HREF } from "@/lib/support";
+import { articleHelpContext, SUPPORT_EMAIL, EMAIL_HREF, SUPPORT_PHONE, PHONE_HREF } from "@/lib/support";
 export function ArticleCards({
   locale,
   articles,
@@ -276,6 +276,18 @@ export function SafetyPage({ locale }: { locale: Locale }) {
     </div>
   );
 }
+const phoneCopy: Record<Locale, { title: string; description: string }> = {
+  en: { title: "Phone contact", description: "For FairSwap platform-related questions. This is a call contact, not an emergency helpline." },
+  hi: { title: "फोन पर संपर्क", description: "FairSwap प्लेटफ़ॉर्म से जुड़े सवालों के लिए कॉल करें। यह आपातकालीन हेल्पलाइन नहीं है।" },
+  bn: { title: "ফোনে যোগাযোগ", description: "FairSwap প্ল্যাটফর্ম সংক্রান্ত প্রশ্নের জন্য কল করুন। এটি জরুরি হেল্পলাইন নয়।" },
+  mr: { title: "फोन संपर्क", description: "FairSwap प्लॅटफॉर्मबाबत प्रश्नांसाठी कॉल करा. हा आपत्कालीन हेल्पलाइन क्रमांक नाही." },
+  te: { title: "ఫోన్ ద్వారా సంప్రదించండి", description: "FairSwap ప్లాట్‌ఫారమ్‌కు సంబంధించిన ప్రశ్నల కోసం కాల్ చేయండి. ఇది అత్యవసర హెల్ప్‌లైన్ కాదు." },
+  ta: { title: "தொலைபேசி தொடர்பு", description: "FairSwap தளம் தொடர்பான கேள்விகளுக்கு அழைக்கவும். இது அவசர உதவி எண் அல்ல." },
+  gu: { title: "ફોન સંપર્ક", description: "FairSwap પ્લેટફોર્મ સંબંધિત પ્રશ્નો માટે કૉલ કરો. આ ઇમરજન્સી હેલ્પલાઇન નથી." },
+  kn: { title: "ದೂರವಾಣಿ ಸಂಪರ್ಕ", description: "FairSwap ಪ್ಲಾಟ್‌ಫಾರ್ಮ್ ಸಂಬಂಧಿತ ಪ್ರಶ್ನೆಗಳಿಗೆ ಕರೆ ಮಾಡಿ. ಇದು ತುರ್ತು ಸಹಾಯವಾಣಿ ಅಲ್ಲ." },
+  or: { title: "ଫୋନ୍ ଯୋଗାଯୋଗ", description: "FairSwap ପ୍ଲାଟଫର୍ମ ସମ୍ବନ୍ଧୀୟ ପ୍ରଶ୍ନ ପାଇଁ କଲ୍ କରନ୍ତୁ। ଏହା ଜରୁରୀକାଳୀନ ହେଲ୍ପଲାଇନ୍ ନୁହେଁ।" },
+  ml: { title: "ഫോൺ ബന്ധപ്പെടൽ", description: "FairSwap പ്ലാറ്റ്‌ഫോമുമായി ബന്ധപ്പെട്ട ചോദ്യങ്ങൾക്ക് വിളിക്കുക. ഇത് അടിയന്തര ഹെൽപ്‌ലൈൻ അല്ല." },
+};
 export function ContactPage({ locale }: { locale: Locale }) {
   const c = copy(locale);
   const entries = [
@@ -284,6 +296,13 @@ export function ContactPage({ locale }: { locale: Locale }) {
       text: c.accountHelpText,
       href: EMAIL_HREF,
       label: SUPPORT_EMAIL,
+      index: 0,
+    },
+    {
+      title: phoneCopy[locale].title,
+      text: phoneCopy[locale].description,
+      href: PHONE_HREF,
+      label: SUPPORT_PHONE,
       index: 0,
     },
     {

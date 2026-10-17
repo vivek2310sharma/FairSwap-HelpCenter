@@ -1,7 +1,9 @@
 import type { Article } from "./content";
 import type { Copy } from "./copy";
 
-export const SUPPORT_EMAIL = "contact@fairswap.in";
+export const SUPPORT_EMAIL = "support@fairswap.in";
+export const SUPPORT_PHONE = "+91 8826599917";
+export const PHONE_HREF = "tel:+918826599917";
 export const EMAIL_HREF = `mailto:${SUPPORT_EMAIL}`;
 export const TICKETS_HREF = "https://fairswap.in/account/support";
 export const GRIEVANCE_HREF = "https://fairswap.in/grievance";

@@ -8,9 +8,19 @@ import {
   helpOptions,
   MARKETPLACE_HREF,
   TICKETS_HREF,
+  PHONE_HREF,
+  SUPPORT_PHONE,
+  SUPPORT_EMAIL,
 } from "../src/lib/support";
 
 describe("contextual help destinations", () => {
+  it("keeps public phone and email links consistent across the help centre", () => {
+    expect(SUPPORT_EMAIL).toBe("support@fairswap.in");
+    expect(SUPPORT_PHONE).toBe("+91 8826599917");
+    expect(EMAIL_HREF).toBe("mailto:support@fairswap.in");
+    expect(PHONE_HREF).toBe("tel:+918826599917");
+  });
+
   it("offers email without signed-in tickets when account access fails", () => {
     expect(
       articleHelpContext({ id: "create-account", category: "account" }),
