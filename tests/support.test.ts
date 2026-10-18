@@ -15,9 +15,9 @@ import {
 
 describe("contextual help destinations", () => {
   it("keeps public phone and email links consistent across the help centre", () => {
-    expect(SUPPORT_EMAIL).toBe("contact@fairswap.in");
+    expect(SUPPORT_EMAIL).toBe("support@fairswap.in");
     expect(SUPPORT_PHONE).toBe("+91 8826599917");
-    expect(EMAIL_HREF).toBe("mailto:contact@fairswap.in");
+    expect(EMAIL_HREF).toBe("mailto:support@fairswap.in");
     expect(PHONE_HREF).toBe("tel:+918826599917");
   });
 
