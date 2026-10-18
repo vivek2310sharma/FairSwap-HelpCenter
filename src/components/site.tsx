@@ -6,10 +6,17 @@ import { LanguageSelector } from "./language-selector";
 import { Icon } from "./icon";
 import { MainNav } from "./main-nav";
 import { helpOptions, type HelpContext } from "@/lib/support";
+import Image from "next/image";
+
 export function Wordmark() {
   return (
-    <a className="wordmark" href="https://fairswap.in">
-      <span>Fair</span>Swap<small>.in</small>
+    <a className="wordmark" href="https://fairswap.in" aria-label="FairSwap">
+      <img
+        src="/brand/source/FairSwap_Web_Logo_Transparent.png"
+        alt="FairSwap Logo"
+        height="28"
+        className="h-7 w-auto"
+      />
     </a>
   );
 }
@@ -99,7 +106,18 @@ export function Footer({ locale }: { locale: Locale }) {
         ))}
       </div>
       <div className="container footer-bottom">
-        <Wordmark />
+        <a
+          className="footer-wordmark"
+          href="https://fairswap.in"
+          aria-label="FairSwap"
+        >
+          <img
+            src="/brand/source/logo with tagline for web.png"
+            alt="FairSwap Logo with Tagline"
+            height="32"
+            className="h-8 w-auto"
+          />
+        </a>
         <span>© {new Date().getFullYear()} FairSwap</span>
       </div>
     </footer>

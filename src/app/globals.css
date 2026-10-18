@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand: #047857;
-  --color-brand-dark: #065f46;
-  --color-brand-soft: #ecfdf5;
+  --color-brand: #0052ff;
+  --color-brand-dark: #0a192f;
+  --color-brand-soft: #f0f4f8;
 }
 :root {
-  --ink: #172a25;
-  --muted: #52635d;
-  --line: #dce7e1;
-  --green: #047857;
-  --soft: #ecfdf5;
+  --ink: #0a192f;
+  --muted: #475569;
+  --line: #e2e8f0;
+  --green: #00731a;
+  --soft: #f0f4f8;
 }
 * {
   box-sizing: border-box;
@@ -202,8 +202,8 @@ p {
 .hero {
   position: relative;
   background:
-    radial-gradient(ellipse at 82% 12%, #d1fae5 0, transparent 47%),
-    linear-gradient(110deg, #f6faf7, #ecfdf5);
+    radial-gradient(ellipse at 82% 12%, #f0f4f8 0, transparent 47%),
+    linear-gradient(110deg, #f8fafc, #f0f4f8);
   border-bottom: 1px solid #dcebe1;
 }
 .hero-inner {
@@ -722,7 +722,7 @@ p {
 }
 .coming-soon {
   background:
-    radial-gradient(ellipse at 95% 0, #d1fae5 0, transparent 60%), #f4faf6;
+    radial-gradient(ellipse at 95% 0, #e2e8f0 0, transparent 60%), #f8fafc;
   text-align: center;
   padding: 64px 40px;
   border: 1px solid #dcebe1;
