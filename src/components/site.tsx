@@ -117,7 +117,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <Image
             src="/brand/logo-tagline.png"
             alt="FairSwap Logo with Tagline"
-            width={250}
+            width={96}
             height={32}
             className="h-8 w-auto"
           />

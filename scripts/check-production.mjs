@@ -61,7 +61,7 @@ try {
   assert.equal(home.status, 200);
   const homeHtml = await home.text();
   assert(homeHtml.includes("How can we help you?"));
-  assert(homeHtml.includes('href="mailto:contact@fairswap.in"'));
+  assert(homeHtml.includes('href="mailto:support@fairswap.in"'));
   assert(!homeHtml.includes("Our guidance is awaiting editorial approval."));
   assert(!homeHtml.includes('class="draft-badge"'));
   assert(!homeHtml.includes('content="noindex'));

@@ -274,7 +274,7 @@ test("support action buttons use equal heights and matching theme across desktop
     }
     await expect(buttons.first()).toHaveCSS(
       "background-color",
-      "rgb(0, 115, 26)",
+      "rgb(0, 82, 255)",
     );
     await expect(buttons.nth(1)).toHaveCSS(
       "background-color",
