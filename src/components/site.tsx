@@ -7,14 +7,13 @@ import { Icon } from "./icon";
 import { MainNav } from "./main-nav";
 import { helpOptions, type HelpContext } from "@/lib/support";
 
-
 export function Wordmark() {
   return (
     <a className="wordmark" href="https://fairswap.in" aria-label="FairSwap">
-
-      <img suppressHydrationWarning
-        src="/brand/source/FairSwap_Web_Logo_Transparent.png"
+      <img
+        src="/brand/logo.png"
         alt="FairSwap Logo"
+        width="91"
         height="28"
         className="h-7 w-auto"
       />
@@ -112,10 +111,10 @@ export function Footer({ locale }: { locale: Locale }) {
           href="https://fairswap.in"
           aria-label="FairSwap"
         >
-
-          <img suppressHydrationWarning
-            src="/brand/source/logo with tagline for web.png"
+          <img
+            src="/brand/logo-tagline.png"
             alt="FairSwap Logo with Tagline"
+            width="250"
             height="32"
             className="h-8 w-auto"
           />

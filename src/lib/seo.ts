@@ -28,6 +28,14 @@ export function metadata(
       url,
       siteName: "FairSwap Help Centre",
       type: "website",
+      images: [
+        {
+          url: `${origin}/brand/social-preview.png`,
+          width: 1200,
+          height: 630,
+          alt: "FairSwap",
+        },
+      ],
     },
     robots: preview
       ? { index: false, follow: false }
