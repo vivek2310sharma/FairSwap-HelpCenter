@@ -158,8 +158,13 @@ test("search focus is quiet; only hovered result heading underlines", async ({
   page,
 }) => {
   // Make the first fetch slow to verify the delayed status treatment.
+  let fulfillRoute: (value?: unknown) => void;
+  const routePromise = new Promise((resolve) => {
+    fulfillRoute = resolve;
+  });
+
   await page.route("**/search/en.json", async (route) => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    await routePromise;
     await route.continue();
   });
   await page.goto("/en");
@@ -167,7 +172,13 @@ test("search focus is quiet; only hovered result heading underlines", async ({
   await input.focus();
   await expect(page.locator(".search-status")).toBeEmpty();
   await input.fill("UPI");
+
+  // Verify loading text while the request is blocked.
   await expect(page.locator(".search-status")).toHaveText(copy("en").loading);
+
+  // Release the request.
+  fulfillRoute!();
+
   const first = page.locator(".result").first();
   await expect(first).toBeVisible();
   await first.hover();
@@ -185,7 +196,7 @@ test("account access offers email without requiring a sign-in, and links avoid d
     await page.goto(`/${locale}/articles/create-account`);
     const help = page.locator(".article-escalation");
     await expect(
-      help.locator('a[href="mailto:contact@fairswap.in"]').first(),
+      help.locator('a[href="mailto:support@fairswap.in"]').first(),
     ).toBeVisible();
     await expect(help.locator(".support-email-address")).toHaveCount(0);
     await expect(
@@ -194,7 +205,7 @@ test("account access offers email without requiring a sign-in, and links avoid d
     await expect(page.locator(".related")).not.toContainText("↗");
     await page.goto(`/${locale}/contact`);
     await expect(
-      page.locator('a[href="mailto:contact@fairswap.in"]'),
+      page.locator('a[href="mailto:support@fairswap.in"]'),
     ).toBeVisible();
   }
   await page.goto("/en/articles/grievance-redressal");
@@ -202,12 +213,12 @@ test("account access offers email without requiring a sign-in, and links avoid d
     page.locator('.article-escalation a[href="https://fairswap.in/grievance"]'),
   ).toBeVisible();
   await expect(
-    page.locator('.article-escalation a[href="mailto:contact@fairswap.in"]'),
+    page.locator('.article-escalation a[href="mailto:support@fairswap.in"]'),
   ).toHaveCount(0);
   await page.goto("/en/articles/avoid-upi-scams");
   await expect(
     page
-      .locator('.article-escalation a[href="mailto:contact@fairswap.in"]')
+      .locator('.article-escalation a[href="mailto:support@fairswap.in"]')
       .first(),
   ).toBeVisible();
   await expect(
@@ -247,7 +258,7 @@ test("support action buttons use equal heights and matching theme across desktop
     await expect(buttons.nth(1)).toHaveText("Open support tickets");
     await expect(buttons.first()).toHaveAttribute(
       "href",
-      "mailto:contact@fairswap.in",
+      "mailto:support@fairswap.in",
     );
     await expect(page.locator(".support-email-address")).toHaveCount(0);
     const boxes = await buttons.evaluateAll((nodes) =>
@@ -263,7 +274,7 @@ test("support action buttons use equal heights and matching theme across desktop
     }
     await expect(buttons.first()).toHaveCSS(
       "background-color",
-      "rgb(4, 120, 87)",
+      "rgb(0, 82, 255)",
     );
     await expect(buttons.nth(1)).toHaveCSS(
       "background-color",
@@ -287,7 +298,7 @@ test("all ten languages show the same email-and-ticket help actions", async ({
       2,
     );
     await expect(
-      page.locator('.support a[href="mailto:contact@fairswap.in"]'),
+      page.locator('.support a[href="mailto:support@fairswap.in"]'),
     ).toHaveText(copy(locale).emailSupport);
     await expect(page.locator(".support-email-address")).toHaveCount(0);
     expect(
