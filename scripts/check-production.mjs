@@ -36,6 +36,7 @@ const articleIds = [
   "submit-support-ticket",
   "grievance-redressal",
 ];
+const drafts = ["how-ratings-work", "report-a-review"];
 const base = "http://127.0.0.1:3001";
 
 try {
@@ -75,6 +76,18 @@ try {
     const entries = await index.json();
     assert.equal(entries.length, 10);
     assert(entries.every((entry) => entry.draft === false));
+    assert.deepEqual(
+      entries.map((entry) => entry.id).sort(),
+      [...articleIds].sort(),
+    );
+    for (const id of drafts) {
+      for (const suffix of ["", "?SHOW_DRAFTS=true", "?preview=true"]) {
+        assert.equal(
+          (await fetch(`${base}/${locale}/articles/${id}${suffix}`)).status,
+          404,
+        );
+      }
+    }
     for (const id of articleIds) {
       const article = await fetch(`${base}/${locale}/articles/${id}`);
       assert.equal(article.status, 200, `${locale}/articles/${id}`);
@@ -98,6 +111,25 @@ try {
 
   const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
   assert.equal((sitemap.match(/<loc>/g) || []).length, 260);
+  assert(drafts.every((id) => !sitemap.includes(id)));
+  // Crawl the published sitemap, including topic navigation and related links.
+  const internalLinks = new Set();
+  for (const [, url] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+    const path = new URL(url).pathname;
+    const response = await fetch(`${base}${path}`);
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    assert(
+      drafts.every((id) => !html.includes(`/articles/${id}`)),
+      path,
+    );
+    for (const [, target] of html.matchAll(/href="(\/[^"#?]*)"/g)) {
+      if (!target.startsWith("/_next/")) internalLinks.add(target);
+    }
+  }
+  for (const target of internalLinks) {
+    assert.equal((await fetch(`${base}${target}`)).status, 200, target);
+  }
   assert(
     sitemap.includes("https://help.fairswap.in/gu/articles/avoid-upi-scams"),
   );

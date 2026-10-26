@@ -61,6 +61,11 @@ export function loadAll(): Article[] {
   );
 }
 export function validateCollection(all: Article[]) {
+  if (
+    all.length !== locales.length * articleIds.length ||
+    all.some((a) => !locales.includes(a.locale))
+  )
+    throw new Error("Unexpected locale collection");
   for (const locale of locales) {
     const set = all.filter((a) => a.locale === locale);
     if (
@@ -70,6 +75,8 @@ export function validateCollection(all: Article[]) {
     )
       throw new Error(`Incomplete or duplicate collection: ${locale}`);
     for (const a of set) {
+      if (!articleIds.includes(a.id))
+        throw new Error(`Unknown article: ${a.id}`);
       if (
         a.relatedIds.some(
           (id) => id === a.id || !set.some((other) => other.id === id),
@@ -78,6 +85,15 @@ export function validateCollection(all: Article[]) {
         throw new Error(`Invalid relation: ${a.id}`);
       if (!/1\. /u.test(a.body) || a.body.length < 200)
         throw new Error(`Incomplete body: ${a.id}`);
+      for (const match of a.body.matchAll(/\]\((\/[^\s)]+)\)/gu)) {
+        const target = all.find(
+          (other) => `/${other.locale}/articles/${other.slug}` === match[1],
+        );
+        if (!target)
+          throw new Error(`Broken article link: ${a.id} -> ${match[1]}`);
+        if (isPublished(a, all) && !isPublished(target, all))
+          throw new Error(`Published article links to draft: ${a.id}`);
+      }
     }
   }
 }

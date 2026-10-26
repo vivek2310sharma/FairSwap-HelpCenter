@@ -11,6 +11,18 @@ describe("deployment publication boundaries", () => {
     vi.stubEnv("VERCEL", "1");
     vi.resetModules();
     expect((await import("../src/lib/publication")).preview).toBe(true);
+    const { visibleArticles } = await import("../src/lib/content");
+    const { locales } = await import("../src/lib/locales");
+    for (const locale of locales) {
+      const articles = visibleArticles(locale);
+      expect(articles).toHaveLength(12);
+      expect(
+        articles
+          .filter((a) => a.editorialStatus === "draft")
+          .map((a) => a.id)
+          .sort(),
+      ).toEqual(["how-ratings-work", "report-a-review"]);
+    }
   });
 
   it("publishes reviewed articles, not arbitrary drafts, in production", async () => {
@@ -26,7 +38,11 @@ describe("deployment publication boundaries", () => {
       visibleArticles("en").every((a) => a.editorialStatus === "reviewed"),
     ).toBe(true);
     const sitemap = (await import("../src/app/(entry)/sitemap")).default;
-    expect(sitemap()).toHaveLength(260);
+    const urls = sitemap();
+    expect(urls).toHaveLength(260);
+    expect(JSON.stringify(urls)).not.toMatch(
+      /how-ratings-work|report-a-review/,
+    );
   });
 
   it("does not expose draft visibility for unknown Vercel environments", async () => {

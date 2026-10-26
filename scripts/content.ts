@@ -4,11 +4,20 @@ import { locales } from "../src/lib/locales";
 import { copy } from "../src/lib/copy";
 import { topics } from "../src/lib/topics";
 import { preview } from "../src/lib/publication";
-import { approvedShellLocales } from "../src/lib/editorial";
+import {
+  approvedShellLocales,
+  shellRequiredArticleIds,
+} from "../src/lib/editorial";
 const all = loadAll();
 validateCollection(all);
 for (const locale of approvedShellLocales) {
-  if (!all.filter((a) => a.locale === locale).every((a) => isPublished(a, all)))
+  if (
+    !shellRequiredArticleIds.every((id) =>
+      all.some(
+        (a) => a.locale === locale && a.id === id && isPublished(a, all),
+      ),
+    )
+  )
     throw new Error(
       `Shell approval requires complete reviewed articles: ${locale}`,
     );

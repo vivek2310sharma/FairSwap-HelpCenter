@@ -46,4 +46,6 @@ export const articleIds = [
   "report-a-listing",
   "submit-support-ticket",
   "grievance-redressal",
+  "how-ratings-work",
+  "report-a-review",
 ] as const;

@@ -8,12 +8,13 @@ import {
 import { copy } from "../src/lib/copy";
 import { topics } from "../src/lib/topics";
 import { articleIds, locales, categories } from "../src/lib/locales";
+import { shellRequiredArticleIds } from "../src/lib/editorial";
 
 const all = loadAll();
 
 describe("editorial contract", () => {
-  it("validates 100 locale-matched articles and all related links", () => {
-    expect(all).toHaveLength(100);
+  it("validates 120 locale-matched articles and all related links", () => {
+    expect(all).toHaveLength(120);
     expect(() => validateCollection(all)).not.toThrow();
   });
 
@@ -24,10 +25,12 @@ describe("editorial contract", () => {
       const set = all.filter((a) => a.locale === locale);
       expect(set.map((a) => a.id).sort()).toEqual([...articleIds].sort());
       expect(
-        set.every(
-          (a) =>
-            a.editorialStatus === "reviewed" && a.reviewedAt === "2026-10-14",
-        ),
+        set
+          .filter((a) => shellRequiredArticleIds.some((id) => id === a.id))
+          .every(
+            (a) =>
+              a.editorialStatus === "reviewed" && a.reviewedAt === "2026-10-14",
+          ),
       ).toBe(true);
       if (locale !== "en") {
         expect(

@@ -2,6 +2,54 @@ import { test, expect, devices } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 import { locales, articleIds, categories } from "../../src/lib/locales";
 import { copy } from "../../src/lib/copy";
+import { loadAll } from "../../src/lib/content";
+
+test("twenty Ratings preview drafts are localized, marked and searchable", async ({
+  page,
+  request,
+}) => {
+  const all = loadAll();
+  for (const locale of locales) {
+    const response = await request.get(`/search/${locale}.json`);
+    const entries = await response.json();
+    expect(entries).toHaveLength(12);
+    for (const id of ["how-ratings-work", "report-a-review"]) {
+      const article = all.find((a) => a.locale === locale && a.id === id)!;
+      expect(entries.find((a: { id: string }) => a.id === id).draft).toBe(true);
+      await page.setViewportSize({ width: 360, height: 800 });
+      await page.goto(`/${locale}/articles/${id}`);
+      await expect(page.locator("html")).toHaveAttribute("lang", locale);
+      await expect(
+        page.getByRole("heading", { name: article.title, exact: true }),
+      ).toBeVisible();
+      await expect(page.locator(".draft-badge")).toHaveText(
+        copy(locale).review,
+      );
+      await expect(page.locator("article time")).toHaveCount(0);
+      await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+        "content",
+        /noindex/,
+      );
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await page.goto(`/${locale}/search`);
+      await page.getByRole("searchbox").fill(article.title);
+      await expect(
+        page.locator(`.result[href="/${locale}/articles/${id}"]`),
+      ).toBeVisible();
+    }
+  }
+  await page.goto("/hi/articles/how-ratings-work");
+  await page.getByRole("combobox").selectOption("ta");
+  await expect(page).toHaveURL(/\/ta\/articles\/how-ratings-work$/);
+  const result = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21aa"])
+    .analyze();
+  expect(result.violations).toEqual([]);
+});
 test("root always redirects to English regardless of language or region", async ({
   request,
 }) => {
@@ -37,6 +85,8 @@ for (const locale of locales)
     await page.getByRole("searchbox").fill("UPI");
     await expect(page.locator(".result").first()).toBeVisible();
     await page.locator(".result").first().click();
+    // UPI safety also appears in future drafts; open the reviewed reference.
+    await page.goto(`/${locale}/articles/avoid-upi-scams`);
     await expect(page.locator(".draft-badge")).toHaveCount(0);
     await expect(page.locator(".prose")).toBeVisible();
     await expect(page.locator("article time")).toHaveAttribute(
@@ -64,7 +114,7 @@ for (const locale of locales)
       ).toHaveCount(0);
     }
   });
-test("all 260 locale routes and all internal links resolve", async ({
+test("all 280 preview locale routes and all internal links resolve", async ({
   request,
 }) => {
   const checked = new Set<string>();
