@@ -30,10 +30,10 @@ FairSwap Web currently uses **email and password** to create an account; mobile 
 
 FairSwap is preparing optional identity verification via **DigiLocker** to build confidence among Indian community members.
 
-* **What it means:** DigiLocker verification confirms that an account belongs to an authentic individual using government-verified credentials.
-* **Current status:** The feature is in technical preparation ("Coming soon"). Verification initiation will become available after credentials and compliance checks are certified.
-* **What data FairSwap receives:** FairSwap receives confirmation of authentication and non-sensitive document hashes. FairSwap never stores your original identity documents or Aadhaar XML files on its public servers.
-* **Consent & withdrawal:** Verification requires your explicit consent. You can withdraw consent at any time from your account settings, which immediately revokes your verified badge.
-* **What a badge guarantees (and does not guarantee):** A verified badge confirms account authenticity. It does **not** guarantee an item's condition, legal ownership, delivery, or protection against off-platform scams. Always inspect goods in person and never send advance UPI payments.
+- **What it means:** DigiLocker verification confirms that an account belongs to an authentic individual using government-verified credentials.
+- **Current status:** The feature is in technical preparation ("Coming soon"). Verification initiation will become available after credentials and compliance checks are certified.
+- **What data FairSwap receives:** FairSwap receives confirmation of authentication and non-sensitive document hashes. FairSwap never stores your original identity documents or Aadhaar XML files on its public servers.
+- **Consent & withdrawal:** Verification requires your explicit consent. You can withdraw consent at any time from your account settings, which immediately revokes your verified badge.
+- **What a badge guarantees (and does not guarantee):** A verified badge confirms account authenticity. It does **not** guarantee an item's condition, legal ownership, delivery, or protection against off-platform scams. Always inspect goods in person and never send advance UPI payments.
 
 These steps describe the current **Web** implementation, not an identical interface on every mobile app.
