@@ -81,7 +81,7 @@ describe("editorial contract", () => {
     ).toThrow();
   });
 
-  it("never publishes a partially reviewed article set", () => {
+  it("withholds only the unapproved translation", () => {
     const partial = all.map((a) =>
       a.id === "create-account" && a.locale === "hi"
         ? {
@@ -94,16 +94,16 @@ describe("editorial contract", () => {
     expect(
       partial
         .filter((a) => a.id === "create-account")
-        .every((a) => !isPublished(a, partial)),
+        .every((a) => isPublished(a) === (a.locale !== "hi")),
     ).toBe(true);
     expect(
       partial
         .filter((a) => a.id === "post-a-listing")
-        .every((a) => isPublished(a, partial)),
+        .every((a) => isPublished(a)),
     ).toBe(true);
   });
 
   it("publishes all 100 owner-approved translations", () => {
-    expect(all.filter((a) => isPublished(a, all))).toHaveLength(100);
+    expect(all.filter((a) => isPublished(a))).toHaveLength(100);
   });
 });

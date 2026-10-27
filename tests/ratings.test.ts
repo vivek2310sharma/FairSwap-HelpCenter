@@ -6,7 +6,7 @@ import { locales } from "../src/lib/locales";
 const all = loadAll();
 const ids = ["how-ratings-work", "report-a-review"];
 const contract =
-  "https://github.com/vivek2310sharma/FairSwap-Backend/blob/feat/ratings-v1-backend/docs/contracts/ratings-v1.md";
+  "https://github.com/vivek2310sharma/FairSwap-Backend/blob/main/docs/contracts/ratings-v1.md";
 // Regression anchors for material facts, not a substitute for human semantic review.
 const anchors = {
   en: [
@@ -165,6 +165,21 @@ const guaranteeDenials = {
 };
 
 describe("Ratings V1 editorial candidate", () => {
+  it("requires a real calendar approval date and reviewed status", () => {
+    const article = all[0];
+    for (const reviewedAt of [null, "", "yesterday", "2026-02-30"]) {
+      expect(
+        isPublished({ ...article, editorialStatus: "reviewed", reviewedAt }),
+      ).toBe(false);
+    }
+    expect(
+      isPublished({
+        ...article,
+        editorialStatus: "draft",
+        reviewedAt: "2026-10-26",
+      }),
+    ).toBe(false);
+  });
   it("has exactly the ten supported locale directories", () => {
     expect(
       readdirSync("content", { withFileTypes: true })
@@ -180,7 +195,7 @@ describe("Ratings V1 editorial candidate", () => {
       for (const a of set) {
         expect(a.editorialStatus).toBe("draft");
         expect(a.reviewedAt).toBeNull();
-        expect(isPublished(a, all)).toBe(false);
+        expect(isPublished(a)).toBe(false);
         expect(a.sourceRefs).toContain(contract);
         expect(a.sourceRefs).toContain(
           "https://www.npci.org.in/fraud-awareness",
@@ -259,9 +274,9 @@ describe("Ratings V1 editorial candidate", () => {
       ),
     ).toThrow(/links to draft/);
   });
-  it("withholds the whole article until its last locale is reviewed", () => {
+  it("publishes English and Hindi independently of unapproved translations", () => {
     const partial = all.map((a) =>
-      a.id === "how-ratings-work" && a.locale !== "ml"
+      a.id === "how-ratings-work" && ["en", "hi"].includes(a.locale)
         ? {
             ...a,
             editorialStatus: "reviewed" as const,
@@ -272,12 +287,10 @@ describe("Ratings V1 editorial candidate", () => {
     expect(
       partial
         .filter((a) => a.id === "how-ratings-work")
-        .every((a) => !isPublished(a, partial)),
+        .every((a) => isPublished(a) === ["en", "hi"].includes(a.locale)),
     ).toBe(true);
     expect(
-      partial
-        .filter((a) => !ids.includes(a.id))
-        .every((a) => isPublished(a, partial)),
+      partial.filter((a) => !ids.includes(a.id)).every((a) => isPublished(a)),
     ).toBe(true);
   });
 });
