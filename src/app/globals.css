@@ -620,6 +620,9 @@ p {
 .prose p {
   margin: 0 0 22px;
 }
+.prose a {
+  text-decoration: underline;
+}
 .prose h2 {
   font-size: 1.4rem;
   margin: 34px 0 20px;

@@ -36,6 +36,14 @@ ADR-013 — One-shot implementation execution: APPROVED USER DIRECTION. Implemen
 
 ## Open decisions
 
+ADR-014 — Ratings V1 draft expansion (26 October 2026): the current task authorizes
+two new article sets as drafts, without extending the 14 October editorial
+approval. Shell preflight retains the original ten required reviewed article IDs;
+future drafts coexist with published shells. Each new ID still requires all ten
+reviewed translations before production publication. See
+[Ratings publication checklist](14_RATINGS_V1_PUBLICATION.md). No feature activation
+or deployment is authorized by this local preparation task.
+
 - Final brand design token source: audit current FairSwap-Web (colors/fonts/logo variants) and agree one explicit visual contract.
 - Confirm ownership and DNS access for fairswap.in.
 - Confirm commercially appropriate Vercel account/team and billing.
