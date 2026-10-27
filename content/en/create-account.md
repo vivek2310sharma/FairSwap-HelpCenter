@@ -14,7 +14,7 @@
 }
 ---
 
-FairSwap Web currently uses **email and password** to create an account. This is different from the phone-number login planned for a future release; mobile app screens may also differ.
+FairSwap Web currently uses **email and password** to create an account; mobile app screens may differ.
 
 ## Create your account
 
@@ -25,5 +25,15 @@ FairSwap Web currently uses **email and password** to create an account. This is
 3. Submit the form and follow the email confirmation instructions, if prompted. Then use [Sign in](https://fairswap.in/auth/sign-in) with your email and password. Existing accounts may also have an **email one-time-code** sign-in option.
 
 4. If you cannot create an account, access your email or sign in, use **Email support** below. You do not need an account to send that message. Describe the error without sending your password, OTP, recovery codes or identity documents.
+
+## Identity verification (DigiLocker V1)
+
+FairSwap is preparing optional identity verification via **DigiLocker** to build confidence among Indian community members.
+
+* **What it means:** DigiLocker verification confirms that an account belongs to an authentic individual using government-verified credentials.
+* **Current status:** The feature is in technical preparation ("Coming soon"). Verification initiation will become available after credentials and compliance checks are certified.
+* **What data FairSwap receives:** FairSwap receives confirmation of authentication and non-sensitive document hashes. FairSwap never stores your original identity documents or Aadhaar XML files on its public servers.
+* **Consent & withdrawal:** Verification requires your explicit consent. You can withdraw consent at any time from your account settings, which immediately revokes your verified badge.
+* **What a badge guarantees (and does not guarantee):** A verified badge confirms account authenticity. It does **not** guarantee an item's condition, legal ownership, delivery, or protection against off-platform scams. Always inspect goods in person and never send advance UPI payments.
 
 These steps describe the current **Web** implementation, not an identical interface on every mobile app.
