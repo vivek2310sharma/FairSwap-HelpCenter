@@ -13,9 +13,7 @@ validateCollection(all);
 for (const locale of approvedShellLocales) {
   if (
     !shellRequiredArticleIds.every((id) =>
-      all.some(
-        (a) => a.locale === locale && a.id === id && isPublished(a, all),
-      ),
+      all.some((a) => a.locale === locale && a.id === id && isPublished(a)),
     )
   )
     throw new Error(
@@ -27,7 +25,7 @@ for (const locale of locales) {
   copy(locale);
   if (topics(locale).length !== 7) throw new Error("Invalid taxonomy");
   const entries = all
-    .filter((a) => a.locale === locale && (preview || isPublished(a, all)))
+    .filter((a) => a.locale === locale && (preview || isPublished(a)))
     .map((a) => ({
       id: a.id,
       slug: a.slug,
@@ -35,7 +33,7 @@ for (const locale of locales) {
       summary: a.summary,
       tags: a.tags,
       text: a.body,
-      draft: !isPublished(a, all),
+      draft: !isPublished(a),
     }));
   writeFileSync(
     `public/search/${locale}.json`,

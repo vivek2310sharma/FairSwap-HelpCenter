@@ -91,26 +91,19 @@ export function validateCollection(all: Article[]) {
         );
         if (!target)
           throw new Error(`Broken article link: ${a.id} -> ${match[1]}`);
-        if (isPublished(a, all) && !isPublished(target, all))
+        if (isPublished(a) && !isPublished(target))
           throw new Error(`Published article links to draft: ${a.id}`);
       }
     }
   }
 }
-export function isPublished(a: Article, all: Article[]): boolean {
-  return locales.every((locale) =>
-    all.some(
-      (other) =>
-        other.id === a.id &&
-        other.locale === locale &&
-        other.editorialStatus === "reviewed" &&
-        !!other.reviewedAt,
-    ),
+export function isPublished(a: Article): boolean {
+  return (
+    a.editorialStatus === "reviewed" &&
+    z.iso.date().safeParse(a.reviewedAt).success
   );
 }
 export function visibleArticles(locale: Locale): Article[] {
   const all = loadAll();
-  return all.filter(
-    (a) => a.locale === locale && (preview || isPublished(a, all)),
-  );
+  return all.filter((a) => a.locale === locale && (preview || isPublished(a)));
 }

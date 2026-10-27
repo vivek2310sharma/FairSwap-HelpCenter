@@ -11,7 +11,7 @@
   "editorialStatus": "draft",
   "sourceRefs":
     [
-      "https://github.com/vivek2310sharma/FairSwap-Backend/blob/feat/ratings-v1-backend/docs/contracts/ratings-v1.md",
+      "https://github.com/vivek2310sharma/FairSwap-Backend/blob/main/docs/contracts/ratings-v1.md",
       "https://www.npci.org.in/fraud-awareness",
       "https://cybercrime.gov.in/",
       "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2287674&lang=1&reg=1",
