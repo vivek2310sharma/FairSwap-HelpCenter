@@ -189,13 +189,14 @@ describe("Ratings V1 editorial candidate", () => {
     ).toEqual([...locales].sort());
   });
   for (const locale of locales) {
-    it(`${locale}: has complete original-language drafts, facts, sources and safety warnings`, () => {
+    it(`${locale}: has complete original-language guides, approval status, facts, sources and safety warnings`, () => {
       const set = all.filter((a) => a.locale === locale && ids.includes(a.id));
       expect(set.map((a) => a.id).sort()).toEqual(ids);
       for (const a of set) {
-        expect(a.editorialStatus).toBe("draft");
-        expect(a.reviewedAt).toBeNull();
-        expect(isPublished(a)).toBe(false);
+        const approved = ["en", "hi"].includes(locale);
+        expect(a.editorialStatus).toBe(approved ? "reviewed" : "draft");
+        expect(a.reviewedAt).toBe(approved ? "2026-10-28" : null);
+        expect(isPublished(a)).toBe(approved);
         expect(a.sourceRefs).toContain(contract);
         expect(a.sourceRefs).toContain(
           "https://www.npci.org.in/fraud-awareness",
@@ -267,30 +268,21 @@ describe("Ratings V1 editorial candidate", () => {
     expect(() =>
       validateCollection(
         all.map((a) =>
-          a.locale === "en" && a.id === "safe-meetup"
-            ? { ...a, body: a.body + "\n[new](/en/articles/how-ratings-work)" }
+          a.locale === "gu" && a.id === "safe-meetup"
+            ? { ...a, body: a.body + "\n[new](/gu/articles/how-ratings-work)" }
             : a,
         ),
       ),
     ).toThrow(/links to draft/);
   });
   it("publishes English and Hindi independently of unapproved translations", () => {
-    const partial = all.map((a) =>
-      a.id === "how-ratings-work" && ["en", "hi"].includes(a.locale)
-        ? {
-            ...a,
-            editorialStatus: "reviewed" as const,
-            reviewedAt: "2026-10-26",
-          }
-        : a,
-    );
     expect(
-      partial
-        .filter((a) => a.id === "how-ratings-work")
+      all
+        .filter((a) => ids.includes(a.id))
         .every((a) => isPublished(a) === ["en", "hi"].includes(a.locale)),
     ).toBe(true);
     expect(
-      partial.filter((a) => !ids.includes(a.id)).every((a) => isPublished(a)),
+      all.filter((a) => !ids.includes(a.id)).every((a) => isPublished(a)),
     ).toBe(true);
   });
 });

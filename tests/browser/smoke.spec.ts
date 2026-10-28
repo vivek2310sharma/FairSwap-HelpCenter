@@ -4,28 +4,39 @@ import { locales, articleIds, categories } from "../../src/lib/locales";
 import { copy } from "../../src/lib/copy";
 import { loadAll } from "../../src/lib/content";
 
-test("twenty Ratings preview drafts are localized, marked and searchable", async ({
+test("twenty Ratings preview guides preserve approvals, draft labels and localized search", async ({
   page,
   request,
 }) => {
   const all = loadAll();
   for (const locale of locales) {
+    const approved = ["en", "hi"].includes(locale);
     const response = await request.get(`/search/${locale}.json`);
     const entries = await response.json();
     expect(entries).toHaveLength(12);
     for (const id of ["how-ratings-work", "report-a-review"]) {
       const article = all.find((a) => a.locale === locale && a.id === id)!;
-      expect(entries.find((a: { id: string }) => a.id === id).draft).toBe(true);
+      expect(entries.find((a: { id: string }) => a.id === id).draft).toBe(
+        !approved,
+      );
       await page.setViewportSize({ width: 360, height: 800 });
       await page.goto(`/${locale}/articles/${id}`);
       await expect(page.locator("html")).toHaveAttribute("lang", locale);
       await expect(
         page.getByRole("heading", { name: article.title, exact: true }),
       ).toBeVisible();
-      await expect(page.locator(".draft-badge")).toHaveText(
-        copy(locale).review,
-      );
-      await expect(page.locator("article time")).toHaveCount(0);
+      if (approved) {
+        await expect(page.locator(".draft-badge")).toHaveCount(0);
+        await expect(page.locator("article time")).toHaveAttribute(
+          "datetime",
+          "2026-10-28",
+        );
+      } else {
+        await expect(page.locator(".draft-badge")).toHaveText(
+          copy(locale).review,
+        );
+        await expect(page.locator("article time")).toHaveCount(0);
+      }
       await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
         "content",
         /noindex/,
