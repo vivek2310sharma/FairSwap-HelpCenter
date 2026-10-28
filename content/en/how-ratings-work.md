@@ -30,13 +30,13 @@ Ratings describe a trading experience; they are not a safety certificate. These 
 
 ## Steps and limits
 
-1. After marking a listing sold, the seller selects the buyer from an existing conversation about that listing. Selecting no buyer leaves the transaction without ratings. Existing sold listings do not receive ratings retrospectively.
+1. After marking a listing sold, the seller selects the buyer from an existing conversation about that listing. “Not now” lets the seller choose later within the original deadline; selecting “None” closes the transaction without ratings. The 14 days start when the listing is marked sold, not when a buyer is selected. Existing sold listings do not receive ratings retrospectively.
 
 2. The selected buyer must explicitly confirm the transaction. Opening Rate Seller confirms the purchase before the optional review form; leaving the form does not undo confirmation. If you did not complete the transaction, dispute it before the displayed deadline instead of confirming it. The seller can submit while confirmation is pending; the buyer must confirm first.
 
 3. Both eligible participants may review within the original 14-day window. Complete all three categories: Communication; Payment when reviewing a buyer or Item as described when reviewing a seller; and Meeting/pickup or Meeting/handover. Each category has four faces: Poor, Fair, Good, Excellent. Choose the face that reflects your experience.
 
-4. Tags and written text are optional. Select up to five available tags and keep text within 500 characters. Do not include private details or threats. Check all choices before submitting: a submitted review cannot be edited.
+4. Tags and written text are optional. Select up to five available tags and keep text within 500 Unicode code points. This is a technical text limit: an emoji or a written character made from several code points can use more than one. Do not include private details or threats. Check all choices before submitting: a submitted review cannot be edited.
 
 5. Reviews are double-blind: the other participant cannot see your submission until both have submitted or the 14-day window ends. You can see your own submission. Publication may take longer than the deadline because processing is periodic. A dispute pauses submissions and suppresses public reviews pending resolution.
 

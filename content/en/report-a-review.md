@@ -30,9 +30,9 @@ Ratings describe a trading experience; they are not a safety certificate. These 
 
 ## Steps and limits
 
-1. For a misleading, abusive or otherwise concerning visible published review, use its report control when available and explain the specific issue in 3–500 characters. You cannot report your own review. One report per person per review is accepted, with at most ten new cases per rolling day; repeated reports do not increase priority. If controls are unavailable, use the support routes below.
+1. For a misleading, abusive or otherwise concerning visible published review, use its report control when available and explain the specific issue in 3–500 Unicode code points. This technical text limit also applies to replies: an emoji or a written character made from several code points can use more than one. You cannot report your own review. One report per person per review is accepted, with at most ten new cases per rolling 24 hours; repeated reports do not increase priority. If controls are unavailable, use the support routes below.
 
-2. The recipient can add one permanent reply only to a visible published review that contains written text. A reply is not available for a faces-only review. Keep it factual and within 500 characters; it cannot be edited after submission and does not change the original rating. Do not publish personal details or retaliate.
+2. The recipient can add one permanent reply only to a visible published review that contains written text. A reply is not available for a faces-only review. Keep it factual and within 500 Unicode code points; it cannot be edited after submission and does not change the original rating. Do not publish personal details or retaliate.
 
 3. If you were selected as buyer for a transaction you did not complete, use the transaction dispute action before its original 14-day deadline. A dispute freezes review submissions and suppresses public reviews and counted reputation until authorized resolution. It does not automatically delete anything or refund money. After the deadline, use support or formal reporting instead.
 
