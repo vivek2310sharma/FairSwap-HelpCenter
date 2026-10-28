@@ -36,7 +36,17 @@ const articleIds = [
   "submit-support-ticket",
   "grievance-redressal",
 ];
-const drafts = ["how-ratings-work", "report-a-review"];
+const ratingsIds = ["how-ratings-work", "report-a-review"];
+const ratingsLocales = ["en", "hi"];
+const ratingsPaths = ratingsLocales.flatMap((locale) =>
+  ratingsIds.map((id) => `/${locale}/articles/${id}`),
+);
+const draftPaths = locales
+  .filter((locale) => !ratingsLocales.includes(locale))
+  .flatMap((locale) => ratingsIds.map((id) => `/${locale}/articles/${id}`));
+const publishedPaths = locales
+  .flatMap((locale) => articleIds.map((id) => `/${locale}/articles/${id}`))
+  .concat(ratingsPaths);
 const base = "http://127.0.0.1:3001";
 
 try {
@@ -67,33 +77,67 @@ try {
   assert(!homeHtml.includes('class="draft-badge"'));
   assert(!homeHtml.includes('content="noindex'));
 
+  let publishedCount = 0;
   for (const locale of locales) {
+    const ratingsApproved = ratingsLocales.includes(locale);
+    const publishedIds = ratingsApproved
+      ? [...articleIds, ...ratingsIds]
+      : articleIds;
     const homepage = await fetch(`${base}/${locale}`);
     assert.equal(homepage.status, 200);
     assert((await homepage.text()).includes(`lang="${locale}"`));
     const index = await fetch(`${base}/search/${locale}.json`);
     assert.equal(index.status, 200);
     const entries = await index.json();
-    assert.equal(entries.length, 10);
+    assert.equal(entries.length, ratingsApproved ? 12 : 10);
+    publishedCount += entries.length;
     assert(entries.every((entry) => entry.draft === false));
     assert.deepEqual(
       entries.map((entry) => entry.id).sort(),
-      [...articleIds].sort(),
+      [...publishedIds].sort(),
     );
-    for (const id of drafts) {
+    for (const id of ratingsIds) {
       for (const suffix of ["", "?SHOW_DRAFTS=true", "?preview=true"]) {
         assert.equal(
           (await fetch(`${base}/${locale}/articles/${id}${suffix}`)).status,
-          404,
+          ratingsApproved ? 200 : 404,
+          `${locale}/articles/${id}${suffix}`,
         );
       }
     }
-    for (const id of articleIds) {
+    for (const id of publishedIds) {
       const article = await fetch(`${base}/${locale}/articles/${id}`);
       assert.equal(article.status, 200, `${locale}/articles/${id}`);
       const html = await article.text();
-      assert(/datetime="2026-10-14"/i.test(html));
+      const reviewedAt = ratingsIds.includes(id) ? "2026-10-28" : "2026-10-14";
+      assert(
+        html.includes(`dateTime="${reviewedAt}"`) ||
+          html.includes(`datetime="${reviewedAt}"`),
+      );
       assert(!html.includes('class="draft-badge"'));
+      assert(!html.includes('content="noindex'));
+      if (ratingsIds.includes(id)) {
+        assert(
+          html.includes(
+            `rel="canonical" href="https://help.fairswap.in/${locale}/articles/${id}"`,
+          ),
+        );
+        const alternates = [
+          ...html.matchAll(/<link\b[^>]*rel="alternate"[^>]*>/g),
+        ].map(([link]) => {
+          const language = /hrefLang="([^"]+)"/i.exec(link)?.[1];
+          const href = /href="([^"]+)"/.exec(link)?.[1];
+          return [language, href];
+        });
+        assert.deepEqual(
+          alternates.sort(),
+          [
+            ["en", `https://help.fairswap.in/en/articles/${id}`],
+            ["hi", `https://help.fairswap.in/hi/articles/${id}`],
+            ["x-default", `https://help.fairswap.in/en/articles/${id}`],
+          ].sort(),
+        );
+      }
     }
     for (const path of [
       "business",
@@ -108,10 +152,16 @@ try {
       );
     }
   }
+  assert.equal(publishedCount, 104);
 
   const sitemap = await (await fetch(`${base}/sitemap.xml`)).text();
-  assert.equal((sitemap.match(/<loc>/g) || []).length, 260);
-  assert(drafts.every((id) => !sitemap.includes(id)));
+  assert.equal((sitemap.match(/<loc>/g) || []).length, 264);
+  const sitemapArticlePaths = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)]
+    .map(([, url]) => new URL(url).pathname)
+    .filter((path) => path.includes("/articles/"));
+  assert.equal(sitemapArticlePaths.length, 104);
+  assert.deepEqual(sitemapArticlePaths.sort(), [...publishedPaths].sort());
+  assert(draftPaths.every((path) => !sitemap.includes(path)));
   // Crawl the published sitemap, including topic navigation and related links.
   const internalLinks = new Set();
   for (const [, url] of sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)) {
@@ -120,7 +170,7 @@ try {
     assert.equal(response.status, 200, path);
     const html = await response.text();
     assert(
-      drafts.every((id) => !html.includes(`/articles/${id}`)),
+      draftPaths.every((path) => !html.includes(path)),
       path,
     );
     for (const [, target] of html.matchAll(/href="(\/[^"#?]*)"/g)) {
@@ -161,7 +211,7 @@ try {
   );
 
   console.log(
-    "PASS: production exposes ten owner-approved locales, 100 guides, 260 sitemap entries, full search indexes, support email, Coming Soon pages, locale suggestions and English default. Unapproved drafts remain gated.",
+    "PASS: production exposes ten owner-approved locales, 104 guides, 264 sitemap entries, four approved EN/HI Ratings guides, full search indexes, support email, Coming Soon pages, locale suggestions and English default. Sixteen unapproved Ratings drafts remain gated.",
   );
 } finally {
   server.kill();
