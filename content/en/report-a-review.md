@@ -7,8 +7,8 @@
   "summary": "Ratings describe a trading experience; they are not a safety certificate. These instructions describe Ratings V1 when enabled on the Web marketplace. Availability and labels may differ by app; if controls are missing, use support.",
   "category": "reporting-support",
   "tags": ["Report a review", "UPI", "OTP", "QR", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-28",
+  "editorialStatus": "reviewed",
   "sourceRefs":
     [
       "https://github.com/vivek2310sharma/FairSwap-Backend/blob/main/docs/contracts/ratings-v1.md",

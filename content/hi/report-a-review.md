@@ -7,8 +7,8 @@
   "summary": "रेटिंग लेन-देन का अनुभव बताती है, सुरक्षा का प्रमाणपत्र नहीं। यह मार्गदर्शन वेब बाज़ार में रेटिंग V1 चालू होने पर लागू है। ऐप में उपलब्धता और नाम अलग हो सकते हैं; विकल्प न दिखे तो सहायता लें।",
   "category": "reporting-support",
   "tags": ["किसी समीक्षा की रिपोर्ट करें", "UPI", "OTP", "QR", "PIN"],
-  "reviewedAt": null,
-  "editorialStatus": "draft",
+  "reviewedAt": "2026-10-28",
+  "editorialStatus": "reviewed",
   "sourceRefs":
     [
       "https://github.com/vivek2310sharma/FairSwap-Backend/blob/main/docs/contracts/ratings-v1.md",

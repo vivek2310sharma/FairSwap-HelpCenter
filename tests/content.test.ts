@@ -103,7 +103,8 @@ describe("editorial contract", () => {
     ).toBe(true);
   });
 
-  it("publishes all 100 owner-approved translations", () => {
-    expect(all.filter((a) => isPublished(a))).toHaveLength(100);
+  it("publishes all 104 owner-approved translations and withholds 16 drafts", () => {
+    expect(all.filter((a) => isPublished(a))).toHaveLength(104);
+    expect(all.filter((a) => !isPublished(a))).toHaveLength(16);
   });
 });
